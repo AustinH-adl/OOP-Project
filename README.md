@@ -5,7 +5,7 @@ A puzzle game that uses tetris style pieces. Written in C++.
 
 Clone the repository from GitHub:
 ```bash
-git clone --rescursive https://github.com/AustinH-adl/OOP-Project
+git clone --recursive https://github.com/AustinH-adl/OOP-Project
 ```
 ```bash
 cd OOP-Project
