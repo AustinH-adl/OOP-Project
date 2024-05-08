@@ -1,0 +1,8 @@
+{
+    "cmake.configureOnOpen": false
+    "clang-format.executable": "clang-format",
+    "clang-format.style": "file",
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "xaver.clang-format"
+
+}
