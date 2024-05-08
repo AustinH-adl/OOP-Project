@@ -22,6 +22,11 @@ sudo apt install build-essential git clang cmake pkg-config
 sudo apt install libasound2-dev libx11-dev libxrandr-dev libxi-dev libgl1-mesa-dev libglu1-mesa-dev libxcursor-dev libxinerama-dev libwayland-dev libxkbcommon-dev
 ```
 
+Fix issue with raylib library
+```bash
+mv src/misc/Rectangle.hpp libs/raylib-cpp/include/Rectangle.hpp
+```
+
 Build raylib:
 ```bash
 cd libs/raylib
