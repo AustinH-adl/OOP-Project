@@ -54,5 +54,3 @@ Run TetriCity:
 ```bash
 ./TetriCity
 ```
-
->>>>>>> 2f68524 (Setup submodules, cmake and project structure)
