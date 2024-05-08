@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-# OOP-Project
-=======
-# TetriCity OOP Game
+# TetriCity OOP Project
 A puzzle game that uses tetris style pieces. Written in C++.
 
 ## How to build and run (Linux & WSL)
