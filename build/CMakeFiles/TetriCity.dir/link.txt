@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/TetriCity.dir/src/main.cpp.o -o TetriCity   -L/home/austihh/OOP-Project/OOP-Project/libs/raylib/build/raylib  -Wl,-rpath,/home/austihh/OOP-Project/OOP-Project/libs/raylib/build/raylib -lraylib 
