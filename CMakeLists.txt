@@ -8,7 +8,7 @@ add_subdirectory(libs/raylib-cpp)
 set(SOURCES src/main.cpp)
 
 # Include and link directories
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/libs/raylib-cpp/include)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/libs/raylib-cpp/include ${CMAKE_CURRENT_SOURCE_DIR}/src)
 link_directories(libs/raylib/build/raylib)
 
 # Copy files from resources folder
