@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/austihh/OOP-Project/OOP-Project/libs/raylib-cpp/include
+CXX_INCLUDES = -I/home/austihh/OOP-Project/OOP-Project/libs/raylib-cpp/include -I/home/austihh/OOP-Project/OOP-Project/src
 
 CXX_FLAGS = -std=gnu++11
 

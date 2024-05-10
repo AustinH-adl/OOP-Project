@@ -1,5 +1,4 @@
-#ifndef MENU_H
-#define MENU_H
+#pragma once
 
 #include "raylib-cpp.hpp"
 #include <iostream>
@@ -7,17 +6,10 @@
 
 class Menu {
     private:
-        const int screenWidth = 1920;
-        const int screenHeight = 1080;
-        const char testText[11] = "Tetri City";
-        Image tile;
-        Texture2D tiletexture;
-        Font titleFont;
-        Vector2 fontSize;
-        Vector2 textPos;
+        int _width;
+        int _height;
+        const char* _title;
     public:
         Menu();
         void Draw();
 };
-
-#endif

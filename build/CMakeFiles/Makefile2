@@ -113,12 +113,12 @@ libs/raylib-cpp/include/clean:
 CMakeFiles/TetriCity.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetriCity.dir/build.make CMakeFiles/TetriCity.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetriCity.dir/build.make CMakeFiles/TetriCity.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/austihh/OOP-Project/OOP-Project/build/CMakeFiles --progress-num=1,2 "Built target TetriCity"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/austihh/OOP-Project/OOP-Project/build/CMakeFiles --progress-num=1,2,3 "Built target TetriCity"
 .PHONY : CMakeFiles/TetriCity.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/TetriCity.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/austihh/OOP-Project/OOP-Project/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/austihh/OOP-Project/OOP-Project/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/TetriCity.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/austihh/OOP-Project/OOP-Project/build/CMakeFiles 0
 .PHONY : CMakeFiles/TetriCity.dir/rule

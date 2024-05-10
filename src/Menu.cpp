@@ -4,24 +4,24 @@
 #include <string>
 
 Menu::Menu() {
-    tile = LoadImage("resources/Tile.png");
-    tiletexture = LoadTextureFromImage(tile);
-    titleFont = LoadFont("resources/SuperPixel.ttf");
-    fontSize = MeasureTextEx(titleFont, testText, 40, 0);
-    textPos = {screenWidth / 2 - fontSize.x / 2, screenHeight / 2 - fontSize.y / 2 - 80};
-}
+    this->_width = 500;
+    this->_height = 500;
+    this->_title = "TetriCity";
+};
 
 void Menu::Draw() {
-    while (!WindowShouldClose())
-    {
+    InitWindow(this->_width, this->_height, this->_title);
+    SetTargetFPS(60);
+    while (!WindowShouldClose()) {
         BeginDrawing();
-        ClearBackground(RAYWHITE);
-        // Test text and image drawing
-        // font, text, postion, font size, spacing, colour
-        DrawTextEx(titleFont, testText, textPos, 40, 0, BLACK);
-        DrawTexture(tiletexture, screenWidth / 2 - tiletexture.width / 2, screenHeight / 2 - tiletexture.height / 2, WHITE);
-
-        EndDrawing();
+            ClearBackground(RAYWHITE);
+            DrawText("TetriCity", 190, 200, 20, LIGHTGRAY);
+        EndDrawing;
     }
     CloseWindow();
 }
+/*
+Menu::~Menu() {
+    delete _title;
+}
+*/
