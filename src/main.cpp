@@ -3,11 +3,9 @@
 #include <iostream>
 #include <string>
 
-int main()
-{
-    std::cout << "Main started" << std::endl;
+int main() {
     Menu menu;
-    std::cout << "Constructor ran" << std::endl;
+    std::cout << "Constructor called" << std::endl;
     menu.Draw();
     std::cout << "Main ran to completion" << std::endl;
     return 0;

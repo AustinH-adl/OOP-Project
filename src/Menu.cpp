@@ -16,7 +16,7 @@ void Menu::Draw() {
         BeginDrawing();
             ClearBackground(RAYWHITE);
             DrawText("TetriCity", 190, 200, 20, LIGHTGRAY);
-        EndDrawing;
+        EndDrawing();
     }
     CloseWindow();
 }
