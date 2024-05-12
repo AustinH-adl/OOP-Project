@@ -12,12 +12,12 @@ Menu::Menu() {
 };
 
 void Menu::Draw() {
-    InitWindow(this->_width, this->_height, this->_title);
+    InitWindow(_width, _height, _title);
     SetTargetFPS(60);
-    Grid grid(0);
+    Grid grid = Grid(0);
     while (!WindowShouldClose()) {
         BeginDrawing();
-            ClearBackground(RAYWHITE);
+            ClearBackground(DARKBLUE);
             //DrawText("TetriCity", 190, 200, 20, LIGHTGRAY);
             grid.Draw();
         EndDrawing();
