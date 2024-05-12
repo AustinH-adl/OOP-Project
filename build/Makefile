@@ -174,6 +174,30 @@ TetriCity/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetriCity.dir/build.make CMakeFiles/TetriCity.dir/build
 .PHONY : TetriCity/fast
 
+src/Grid.o: src/Grid.cpp.o
+.PHONY : src/Grid.o
+
+# target to build an object file
+src/Grid.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetriCity.dir/build.make CMakeFiles/TetriCity.dir/src/Grid.cpp.o
+.PHONY : src/Grid.cpp.o
+
+src/Grid.i: src/Grid.cpp.i
+.PHONY : src/Grid.i
+
+# target to preprocess a source file
+src/Grid.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetriCity.dir/build.make CMakeFiles/TetriCity.dir/src/Grid.cpp.i
+.PHONY : src/Grid.cpp.i
+
+src/Grid.s: src/Grid.cpp.s
+.PHONY : src/Grid.s
+
+# target to generate assembly for a file
+src/Grid.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetriCity.dir/build.make CMakeFiles/TetriCity.dir/src/Grid.cpp.s
+.PHONY : src/Grid.cpp.s
+
 src/Menu.o: src/Menu.cpp.o
 .PHONY : src/Menu.o
 
@@ -235,6 +259,9 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... TetriCity"
+	@echo "... src/Grid.o"
+	@echo "... src/Grid.i"
+	@echo "... src/Grid.s"
 	@echo "... src/Menu.o"
 	@echo "... src/Menu.i"
 	@echo "... src/Menu.s"

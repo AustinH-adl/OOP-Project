@@ -1,1 +1,1 @@
-/usr/bin/c++ -rdynamic CMakeFiles/TetriCity.dir/src/main.cpp.o CMakeFiles/TetriCity.dir/src/Menu.cpp.o -o TetriCity   -L/home/austihh/OOP-Project/OOP-Project/libs/raylib/build/raylib  -Wl,-rpath,/home/austihh/OOP-Project/OOP-Project/libs/raylib/build/raylib -lraylib 
+/usr/bin/c++ -rdynamic CMakeFiles/TetriCity.dir/src/main.cpp.o CMakeFiles/TetriCity.dir/src/Menu.cpp.o CMakeFiles/TetriCity.dir/src/Grid.cpp.o -o TetriCity   -L/home/austihh/OOP-Project/OOP-Project/libs/raylib/build/raylib  -Wl,-rpath,/home/austihh/OOP-Project/OOP-Project/libs/raylib/build/raylib -lraylib 
