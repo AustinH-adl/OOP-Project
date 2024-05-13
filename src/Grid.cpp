@@ -3,7 +3,6 @@
 #include "Menu.hpp"
 
 Grid::Grid(int i) {
-    //std::cout << "Grid Constructor called" << std::endl;
     this->gridSize.numRows = 20;
     this->gridSize.numCol = 10;
     this->gridSize.cellSize = 30;
@@ -18,6 +17,7 @@ Grid::Grid() {
 }
 
 void Grid::Initialize(int i) {
+    //iterates through the gridarray and sets all elements to 0
     if (i=0) {
         for (int row = 0; row < gridSize.numRows; row++) {
             for (int col = 0; col < gridSize.numCol; col++) {
@@ -25,13 +25,13 @@ void Grid::Initialize(int i) {
             }
         }
     } 
-    //std::cout<< "Grid Initialized" << std::endl;
 }
 
 void Grid::Draw() {
     for (int row = 0; row < gridSize.numRows; row++) {
         for (int col = 0; col < gridSize.numCol; col++) {
             int cellValue = gridArray[row][col];
+            //Display the each gridcell using display rectangle RAYLIB method
             DrawRectangle(col * gridSize.cellSize+1, row * gridSize.cellSize+1, gridSize.cellSize-1, gridSize.cellSize-1, Color(DARKGRAY));
             //std::cout << "rectangle Drawn at row:" << row+1 << " And Column:" << col+1 << std::endl << "Cell value is:" << cellValue << std::endl;
         }
@@ -40,5 +40,5 @@ void Grid::Draw() {
 
 std::vector<Color> Grid::GetColor() {
     //std::cout << "GetColor run" << std::endl;
-    return {LIGHTGRAY, YELLOW, PINK, RED, BLUE};
+    return {LIGHTGRAY, YELLOW, PINK, RED, BLUE}; //returns a vector of different colour values
 }

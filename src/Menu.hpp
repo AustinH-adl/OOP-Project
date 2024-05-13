@@ -11,5 +11,5 @@ class Menu {
         const char* _title;
     public:
         Menu();
-        void Draw();
+        void Draw(); //method which desplays the menu/window
 };
