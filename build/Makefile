@@ -198,6 +198,30 @@ src/Grid.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetriCity.dir/build.make CMakeFiles/TetriCity.dir/src/Grid.cpp.s
 .PHONY : src/Grid.cpp.s
 
+src/MainMenu.o: src/MainMenu.cpp.o
+.PHONY : src/MainMenu.o
+
+# target to build an object file
+src/MainMenu.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetriCity.dir/build.make CMakeFiles/TetriCity.dir/src/MainMenu.cpp.o
+.PHONY : src/MainMenu.cpp.o
+
+src/MainMenu.i: src/MainMenu.cpp.i
+.PHONY : src/MainMenu.i
+
+# target to preprocess a source file
+src/MainMenu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetriCity.dir/build.make CMakeFiles/TetriCity.dir/src/MainMenu.cpp.i
+.PHONY : src/MainMenu.cpp.i
+
+src/MainMenu.s: src/MainMenu.cpp.s
+.PHONY : src/MainMenu.s
+
+# target to generate assembly for a file
+src/MainMenu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetriCity.dir/build.make CMakeFiles/TetriCity.dir/src/MainMenu.cpp.s
+.PHONY : src/MainMenu.cpp.s
+
 src/Menu.o: src/Menu.cpp.o
 .PHONY : src/Menu.o
 
@@ -262,6 +286,9 @@ help:
 	@echo "... src/Grid.o"
 	@echo "... src/Grid.i"
 	@echo "... src/Grid.s"
+	@echo "... src/MainMenu.o"
+	@echo "... src/MainMenu.i"
+	@echo "... src/MainMenu.s"
 	@echo "... src/Menu.o"
 	@echo "... src/Menu.i"
 	@echo "... src/Menu.s"

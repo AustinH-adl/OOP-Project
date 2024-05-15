@@ -1,6 +1,6 @@
 #include "raylib-cpp.hpp"
-#include "Menu.hpp"
 #include "Grid.hpp"
+#include "Window.hpp"
 #include <iostream>
 #include <string>
 

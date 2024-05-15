@@ -1,11 +1,14 @@
-CMakeFiles/TetriCity.dir/src/main.cpp.o: \
- /home/austihh/OOP-Project/OOP-Project/src/main.cpp \
+CMakeFiles/TetriCity.dir/src/MainMenu.cpp.o: \
+ /home/austihh/OOP-Project/OOP-Project/src/MainMenu.cpp \
  /usr/include/stdc-predef.h \
+ /home/austihh/OOP-Project/OOP-Project/src/MainMenu.hpp \
+ /home/austihh/OOP-Project/OOP-Project/libs/raylib-cpp/include/raylib.hpp \
+ /usr/local/include/raylib.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
+ /home/austihh/OOP-Project/OOP-Project/src/Grid.hpp \
  /home/austihh/OOP-Project/OOP-Project/libs/raylib-cpp/include/raylib-cpp.hpp \
  /home/austihh/OOP-Project/OOP-Project/libs/raylib-cpp/include/./AudioDevice.hpp \
  /home/austihh/OOP-Project/OOP-Project/libs/raylib-cpp/include/././raylib.hpp \
- /usr/local/include/raylib.h \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
  /home/austihh/OOP-Project/OOP-Project/libs/raylib-cpp/include/././raylib-cpp-utils.hpp \
  /home/austihh/OOP-Project/OOP-Project/libs/raylib-cpp/include/././RaylibException.hpp \
  /usr/include/c++/11/stdexcept /usr/include/c++/11/exception \
@@ -231,7 +234,4 @@ CMakeFiles/TetriCity.dir/src/main.cpp.o: \
  /usr/include/c++/11/bits/locale_facets.tcc \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
- /usr/include/c++/11/bits/istream.tcc \
- /home/austihh/OOP-Project/OOP-Project/src/Grid.hpp \
- /home/austihh/OOP-Project/OOP-Project/src/MainMenu.hpp \
- /home/austihh/OOP-Project/OOP-Project/libs/raylib-cpp/include/raylib.hpp
+ /usr/include/c++/11/bits/istream.tcc

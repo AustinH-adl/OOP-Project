@@ -10,6 +10,7 @@ Grid::Grid(int i) {
     this->gridSize.cellSize = 30;
     Initialize(0);
     colors = GetColor();
+    this->Draw();
 }
 Grid::Grid() {
     this->gridSize.numRows = 20;
@@ -27,12 +28,9 @@ void Grid::Initialize(int i) {
         for (int row = 0; row < gridSize.numRows; row++) {
             for (int col = 0; col < gridSize.numCol; col++) {
                 gridArray[row][col] = map.Map[row][col];
-                std::cout << "At row " << row << " and column " << col <<  " Map value is: " << map.Map[row][col];
-                std::cout << "and Grid value is: " << gridArray[row][col] << std::endl;
             }
         }
     } 
-    this->Print();
 }
 
 void Grid::Print() {
@@ -46,16 +44,16 @@ void Grid::Print() {
 
 void Grid::Draw() {
     int cellValue = 0;
+    BeginDrawing();
     for (int row = 0; row < gridSize.numRows; row++) {
         for (int col = 0; col < gridSize.numCol; col++) {
             cellValue = gridArray[row][col];
-            std::cout << "Grid value is:" << gridArray[row][col] << std::endl;
-            std::cout << "Cell value is:" << cellValue << std::endl;
             //Display the each gridcell using display rectangle RAYLIB method
             DrawRectangle(col * gridSize.cellSize+1, row * gridSize.cellSize+1, gridSize.cellSize-1, gridSize.cellSize-1, colors[cellValue]);
             //std::cout << "rectangle Drawn at row:" << row+1 << " And Column:" << col+1 << std::endl << "Cell value is:" << cellValue << std::endl;
         }
     }
+    EndDrawing();
     this->Print();
 }
 
