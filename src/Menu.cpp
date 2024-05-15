@@ -12,8 +12,8 @@ Menu::Menu() {
 
 void Menu::Draw() {
     InitWindow(_width, _height, _title); //Initialize window with width, height and title members. 
-    SetTargetFPS(60); //Set the FPS for the window to 60 frames per second
-    Grid grid = Grid(0); //Instantiate grid object which calls initialize with 0
+    SetTargetFPS(60);
+    Grid grid(0); //Instantiate grid object which calls initialize with 0
     while (!WindowShouldClose()) {
         BeginDrawing();
             ClearBackground(DARKBLUE); //Set the background to darkblue

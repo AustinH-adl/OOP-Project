@@ -266,7 +266,8 @@ CMakeFiles/TetriCity.dir/src/Grid.cpp.o: ../src/Grid.cpp \
   /usr/include/c++/11/bits/basic_ios.tcc \
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/istream \
-  /usr/include/c++/11/bits/istream.tcc
+  /usr/include/c++/11/bits/istream.tcc \
+  ../src/Lvl1.hpp
 
 CMakeFiles/TetriCity.dir/src/Menu.cpp.o: ../src/Menu.cpp \
   /usr/include/stdc-predef.h \
@@ -799,7 +800,8 @@ CMakeFiles/TetriCity.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/c++/11/bits/basic_ios.tcc \
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/istream \
-  /usr/include/c++/11/bits/istream.tcc
+  /usr/include/c++/11/bits/istream.tcc \
+  ../src/Grid.hpp
 
 
 ../src/main.cpp:
@@ -1037,6 +1039,8 @@ CMakeFiles/TetriCity.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
 
 /usr/include/c++/11/debug/assertions.h:
+
+../src/Lvl1.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
 

@@ -20,5 +20,6 @@ class Grid {
         Grid(); 
         Grid(int);
         void Draw(); //Method which displays the grid
+        void Print(); //Print method for testing
         void Initialize(int); //Method which initializes all data members along with Grid constructor
 };

@@ -1,41 +1,62 @@
 #include "Grid.hpp"
 #include "raylib-cpp.hpp"
 #include "Menu.hpp"
+#include "Lvl1.hpp"
+#include <iostream>
 
 Grid::Grid(int i) {
     this->gridSize.numRows = 20;
     this->gridSize.numCol = 10;
     this->gridSize.cellSize = 30;
-    this->Initialize(i);
+    Initialize(0);
     colors = GetColor();
 }
 Grid::Grid() {
-    this->gridSize.numRows = 10;
-    this->gridSize.numCol = 20;
+    this->gridSize.numRows = 20;
+    this->gridSize.numCol = 10;
     this->gridSize.cellSize = 30;
     colors = GetColor();
+    Initialize(0);
 }
 
 void Grid::Initialize(int i) {
     //iterates through the gridarray and sets all elements to 0
-    if (i=0) {
+    Lvl1 map;
+    colors = GetColor();
+    if (i==0) {
         for (int row = 0; row < gridSize.numRows; row++) {
             for (int col = 0; col < gridSize.numCol; col++) {
-                gridArray[row][col] = 0;
+                gridArray[row][col] = map.Map[row][col];
+                std::cout << "At row " << row << " and column " << col <<  " Map value is: " << map.Map[row][col];
+                std::cout << "and Grid value is: " << gridArray[row][col] << std::endl;
             }
         }
     } 
+    this->Print();
+}
+
+void Grid::Print() {
+    for (int row = 0; row < gridSize.numRows; row++) {
+        for (int col = 0; col < gridSize.numCol; col++) {
+            std::cout << gridArray[row][col];
+        }
+        std::cout << std::endl;
+    }
 }
 
 void Grid::Draw() {
+    int cellValue = 0;
     for (int row = 0; row < gridSize.numRows; row++) {
         for (int col = 0; col < gridSize.numCol; col++) {
-            int cellValue = gridArray[row][col];
+            cellValue = gridArray[row][col];
+            std::cout << "Grid value is:" << gridArray[row][col] << std::endl;
+            std::cout << "Cell value is:" << cellValue << std::endl;
             //Display the each gridcell using display rectangle RAYLIB method
-            DrawRectangle(col * gridSize.cellSize+1, row * gridSize.cellSize+1, gridSize.cellSize-1, gridSize.cellSize-1, Color(DARKGRAY));
+            DrawRectangle(col * gridSize.cellSize+1, row * gridSize.cellSize+1, gridSize.cellSize-1, gridSize.cellSize-1, colors[cellValue]);
             //std::cout << "rectangle Drawn at row:" << row+1 << " And Column:" << col+1 << std::endl << "Cell value is:" << cellValue << std::endl;
         }
     }
+    this->Print();
 }
 
 std::vector<Color> Grid::GetColor() {

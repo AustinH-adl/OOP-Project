@@ -5,7 +5,7 @@ project(TetriCity)
 add_subdirectory(libs/raylib-cpp)
 
 # Set source files
-set(SOURCES src/main.cpp src/Menu.hpp src/Menu.cpp src/Grid.hpp src/Grid.cpp)
+set(SOURCES src/main.cpp src/Menu.hpp src/Menu.cpp src/Grid.hpp src/Grid.cpp src/Lvl1.hpp)
 
 # Include and link directories
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/libs/raylib-cpp/include ${CMAKE_CURRENT_SOURCE_DIR}/src)
