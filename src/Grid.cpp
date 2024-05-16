@@ -1,7 +1,7 @@
 #include "Grid.hpp"
 #include "raylib-cpp.hpp"
 #include "Menu.hpp"
-#include "Lvl1.hpp"
+#include "Levels.hpp"
 #include <vector>
 #include <iostream>
 
@@ -23,8 +23,8 @@ Grid::Grid() {
 
 void Grid::Initialize(int i) {
     //iterates through the gridarray and sets all elements to 0
-    Lvl1 map;
-    std::vector<std::vector<int>> mapVec = map.Map;
+    Level1 map;
+    std::vector<std::vector<int>> mapVec = map.returnMap();
     colors = GetColor();
     if (i==0) {
         for (int row = 0; row < gridSize.numRows; row++) {
