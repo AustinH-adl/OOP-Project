@@ -6,8 +6,6 @@
 #include <string>
 
 int main() {
-    MainMenu men;
-    Grid grid;
     Menu menu;
     menu.Run();
 }

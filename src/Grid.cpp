@@ -56,7 +56,6 @@ void Grid::Draw(int* ptr) {
         }
     }
     EndDrawing();
-    this->Print();
 }
 
 std::vector<Color> Grid::GetColor() {
