@@ -244,6 +244,8 @@ CMakeFiles/TetriCity.dir/src/Grid.cpp.o: ../src/Grid.cpp \
   ../libs/raylib-cpp/include/Wave.hpp \
   ../libs/raylib-cpp/include/Window.hpp \
   ../src/Menu.hpp \
+  ../src/MainMenu.hpp \
+  ../libs/raylib-cpp/include/raylib.hpp \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/ostream \
   /usr/include/c++/11/ios \
@@ -781,6 +783,8 @@ CMakeFiles/TetriCity.dir/src/Menu.cpp.o: ../src/Menu.cpp \
   ../libs/raylib-cpp/include/Window.hpp \
   ../src/Grid.hpp \
   ../src/Menu.hpp \
+  ../src/MainMenu.hpp \
+  ../libs/raylib-cpp/include/raylib.hpp \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/ostream \
   /usr/include/c++/11/ios \
@@ -1048,6 +1052,9 @@ CMakeFiles/TetriCity.dir/src/main.cpp.o: ../src/main.cpp \
   ../libs/raylib-cpp/include/Wave.hpp \
   ../libs/raylib-cpp/include/Window.hpp \
   ../src/Menu.hpp \
+  ../src/MainMenu.hpp \
+  ../libs/raylib-cpp/include/raylib.hpp \
+  ../src/Grid.hpp \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/ostream \
   /usr/include/c++/11/ios \
@@ -1070,15 +1077,10 @@ CMakeFiles/TetriCity.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/c++/11/bits/basic_ios.tcc \
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/istream \
-  /usr/include/c++/11/bits/istream.tcc \
-  ../src/Grid.hpp \
-  ../src/MainMenu.hpp \
-  ../libs/raylib-cpp/include/raylib.hpp
+  /usr/include/c++/11/bits/istream.tcc
 
 
 ../src/main.cpp:
-
-../src/MainMenu.hpp:
 
 ../src/MainMenu.cpp:
 
@@ -1097,6 +1099,8 @@ CMakeFiles/TetriCity.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h:
 
 /usr/include/c++/11/bits/locale_classes.h:
+
+../src/MainMenu.hpp:
 
 ../libs/raylib-cpp/include/Window.hpp:
 

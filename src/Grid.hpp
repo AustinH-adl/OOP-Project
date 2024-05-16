@@ -2,6 +2,8 @@
 
 #include "raylib-cpp.hpp"
 #include "Menu.hpp"
+#include "Grid.hpp"
+#include "MainMenu.hpp"
 #include <vector>
 
 struct _gridSize {
@@ -19,7 +21,7 @@ class Grid {
         int gridArray[20][10]; //Multilevel array of integers representing the map. array[row][column]
         Grid(); 
         Grid(int);
-        void Draw(); //Method which displays the grid
+        void Draw(int*); //Method which displays the grid
         void Print(); //Print method for testing
         void Initialize(int); //Method which initializes all data members along with Grid constructor
 };

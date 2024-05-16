@@ -8,6 +8,6 @@ class MainMenu {
         const char* title;
     public:
         MainMenu();
-        void Draw(); //method which desplays the menu/window
-        void ButtonPressed();
+        void Draw(int*); //method which desplays the menu/window
+        void ButtonPressed(int*);
 };

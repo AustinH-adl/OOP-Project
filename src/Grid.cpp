@@ -2,6 +2,7 @@
 #include "raylib-cpp.hpp"
 #include "Menu.hpp"
 #include "Lvl1.hpp"
+#include <vector>
 #include <iostream>
 
 Grid::Grid(int i) {
@@ -10,8 +11,8 @@ Grid::Grid(int i) {
     this->gridSize.cellSize = 30;
     Initialize(0);
     colors = GetColor();
-    this->Draw();
 }
+
 Grid::Grid() {
     this->gridSize.numRows = 20;
     this->gridSize.numCol = 10;
@@ -23,11 +24,12 @@ Grid::Grid() {
 void Grid::Initialize(int i) {
     //iterates through the gridarray and sets all elements to 0
     Lvl1 map;
+    std::vector<std::vector<int>> mapVec = map.Map;
     colors = GetColor();
     if (i==0) {
         for (int row = 0; row < gridSize.numRows; row++) {
             for (int col = 0; col < gridSize.numCol; col++) {
-                gridArray[row][col] = map.Map[row][col];
+                gridArray[row][col] = mapVec[row][col];
             }
         }
     } 
@@ -42,7 +44,7 @@ void Grid::Print() {
     }
 }
 
-void Grid::Draw() {
+void Grid::Draw(int* ptr) {
     int cellValue = 0;
     BeginDrawing();
     for (int row = 0; row < gridSize.numRows; row++) {

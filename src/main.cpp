@@ -7,12 +7,7 @@
 
 int main() {
     MainMenu men;
-    /*  Commented out for testing with MainMenu
-    
+    Grid grid;
     Menu menu;
-    std::cout << "Constructor called" << std::endl;
-    menu.Draw();
-    std::cout << "Main ran to completion" << std::endl;
-    return 0;
-    */
+    menu.Run();
 }
