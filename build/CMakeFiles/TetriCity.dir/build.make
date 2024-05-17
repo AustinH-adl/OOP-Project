@@ -111,10 +111,38 @@ CMakeFiles/TetriCity.dir/src/Grid.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TetriCity.dir/src/Grid.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/austihh/OOP-Project/OOP-Project/src/Grid.cpp -o CMakeFiles/TetriCity.dir/src/Grid.cpp.s
 
+CMakeFiles/TetriCity.dir/src/Level.cpp.o: CMakeFiles/TetriCity.dir/flags.make
+CMakeFiles/TetriCity.dir/src/Level.cpp.o: ../src/Level.cpp
+CMakeFiles/TetriCity.dir/src/Level.cpp.o: CMakeFiles/TetriCity.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/austihh/OOP-Project/OOP-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/TetriCity.dir/src/Level.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TetriCity.dir/src/Level.cpp.o -MF CMakeFiles/TetriCity.dir/src/Level.cpp.o.d -o CMakeFiles/TetriCity.dir/src/Level.cpp.o -c /home/austihh/OOP-Project/OOP-Project/src/Level.cpp
+
+CMakeFiles/TetriCity.dir/src/Level.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TetriCity.dir/src/Level.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/austihh/OOP-Project/OOP-Project/src/Level.cpp > CMakeFiles/TetriCity.dir/src/Level.cpp.i
+
+CMakeFiles/TetriCity.dir/src/Level.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TetriCity.dir/src/Level.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/austihh/OOP-Project/OOP-Project/src/Level.cpp -o CMakeFiles/TetriCity.dir/src/Level.cpp.s
+
+CMakeFiles/TetriCity.dir/src/Levels.cpp.o: CMakeFiles/TetriCity.dir/flags.make
+CMakeFiles/TetriCity.dir/src/Levels.cpp.o: ../src/Levels.cpp
+CMakeFiles/TetriCity.dir/src/Levels.cpp.o: CMakeFiles/TetriCity.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/austihh/OOP-Project/OOP-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/TetriCity.dir/src/Levels.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TetriCity.dir/src/Levels.cpp.o -MF CMakeFiles/TetriCity.dir/src/Levels.cpp.o.d -o CMakeFiles/TetriCity.dir/src/Levels.cpp.o -c /home/austihh/OOP-Project/OOP-Project/src/Levels.cpp
+
+CMakeFiles/TetriCity.dir/src/Levels.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TetriCity.dir/src/Levels.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/austihh/OOP-Project/OOP-Project/src/Levels.cpp > CMakeFiles/TetriCity.dir/src/Levels.cpp.i
+
+CMakeFiles/TetriCity.dir/src/Levels.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TetriCity.dir/src/Levels.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/austihh/OOP-Project/OOP-Project/src/Levels.cpp -o CMakeFiles/TetriCity.dir/src/Levels.cpp.s
+
 CMakeFiles/TetriCity.dir/src/MainMenu.cpp.o: CMakeFiles/TetriCity.dir/flags.make
 CMakeFiles/TetriCity.dir/src/MainMenu.cpp.o: ../src/MainMenu.cpp
 CMakeFiles/TetriCity.dir/src/MainMenu.cpp.o: CMakeFiles/TetriCity.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/austihh/OOP-Project/OOP-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/TetriCity.dir/src/MainMenu.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/austihh/OOP-Project/OOP-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/TetriCity.dir/src/MainMenu.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TetriCity.dir/src/MainMenu.cpp.o -MF CMakeFiles/TetriCity.dir/src/MainMenu.cpp.o.d -o CMakeFiles/TetriCity.dir/src/MainMenu.cpp.o -c /home/austihh/OOP-Project/OOP-Project/src/MainMenu.cpp
 
 CMakeFiles/TetriCity.dir/src/MainMenu.cpp.i: cmake_force
@@ -130,6 +158,8 @@ TetriCity_OBJECTS = \
 "CMakeFiles/TetriCity.dir/src/main.cpp.o" \
 "CMakeFiles/TetriCity.dir/src/Menu.cpp.o" \
 "CMakeFiles/TetriCity.dir/src/Grid.cpp.o" \
+"CMakeFiles/TetriCity.dir/src/Level.cpp.o" \
+"CMakeFiles/TetriCity.dir/src/Levels.cpp.o" \
 "CMakeFiles/TetriCity.dir/src/MainMenu.cpp.o"
 
 # External object files for target TetriCity
@@ -138,10 +168,12 @@ TetriCity_EXTERNAL_OBJECTS =
 TetriCity: CMakeFiles/TetriCity.dir/src/main.cpp.o
 TetriCity: CMakeFiles/TetriCity.dir/src/Menu.cpp.o
 TetriCity: CMakeFiles/TetriCity.dir/src/Grid.cpp.o
+TetriCity: CMakeFiles/TetriCity.dir/src/Level.cpp.o
+TetriCity: CMakeFiles/TetriCity.dir/src/Levels.cpp.o
 TetriCity: CMakeFiles/TetriCity.dir/src/MainMenu.cpp.o
 TetriCity: CMakeFiles/TetriCity.dir/build.make
 TetriCity: CMakeFiles/TetriCity.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/austihh/OOP-Project/OOP-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable TetriCity"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/austihh/OOP-Project/OOP-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable TetriCity"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TetriCity.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

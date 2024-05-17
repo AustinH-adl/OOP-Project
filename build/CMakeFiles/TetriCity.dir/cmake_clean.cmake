@@ -1,6 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/TetriCity.dir/src/Grid.cpp.o"
   "CMakeFiles/TetriCity.dir/src/Grid.cpp.o.d"
+  "CMakeFiles/TetriCity.dir/src/Level.cpp.o"
+  "CMakeFiles/TetriCity.dir/src/Level.cpp.o.d"
+  "CMakeFiles/TetriCity.dir/src/Levels.cpp.o"
+  "CMakeFiles/TetriCity.dir/src/Levels.cpp.o.d"
   "CMakeFiles/TetriCity.dir/src/MainMenu.cpp.o"
   "CMakeFiles/TetriCity.dir/src/MainMenu.cpp.o.d"
   "CMakeFiles/TetriCity.dir/src/Menu.cpp.o"

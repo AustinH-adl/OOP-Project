@@ -8,6 +8,6 @@ class Position{
         Position(int row, int column);
         int get_Row();
         int get_Column();
-        void set_Row();
-        void set_Column();
+        void set_Row(int row);
+        void set_Column(int column);
 };

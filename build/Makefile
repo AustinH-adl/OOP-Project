@@ -198,6 +198,54 @@ src/Grid.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetriCity.dir/build.make CMakeFiles/TetriCity.dir/src/Grid.cpp.s
 .PHONY : src/Grid.cpp.s
 
+src/Level.o: src/Level.cpp.o
+.PHONY : src/Level.o
+
+# target to build an object file
+src/Level.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetriCity.dir/build.make CMakeFiles/TetriCity.dir/src/Level.cpp.o
+.PHONY : src/Level.cpp.o
+
+src/Level.i: src/Level.cpp.i
+.PHONY : src/Level.i
+
+# target to preprocess a source file
+src/Level.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetriCity.dir/build.make CMakeFiles/TetriCity.dir/src/Level.cpp.i
+.PHONY : src/Level.cpp.i
+
+src/Level.s: src/Level.cpp.s
+.PHONY : src/Level.s
+
+# target to generate assembly for a file
+src/Level.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetriCity.dir/build.make CMakeFiles/TetriCity.dir/src/Level.cpp.s
+.PHONY : src/Level.cpp.s
+
+src/Levels.o: src/Levels.cpp.o
+.PHONY : src/Levels.o
+
+# target to build an object file
+src/Levels.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetriCity.dir/build.make CMakeFiles/TetriCity.dir/src/Levels.cpp.o
+.PHONY : src/Levels.cpp.o
+
+src/Levels.i: src/Levels.cpp.i
+.PHONY : src/Levels.i
+
+# target to preprocess a source file
+src/Levels.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetriCity.dir/build.make CMakeFiles/TetriCity.dir/src/Levels.cpp.i
+.PHONY : src/Levels.cpp.i
+
+src/Levels.s: src/Levels.cpp.s
+.PHONY : src/Levels.s
+
+# target to generate assembly for a file
+src/Levels.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetriCity.dir/build.make CMakeFiles/TetriCity.dir/src/Levels.cpp.s
+.PHONY : src/Levels.cpp.s
+
 src/MainMenu.o: src/MainMenu.cpp.o
 .PHONY : src/MainMenu.o
 
@@ -286,6 +334,12 @@ help:
 	@echo "... src/Grid.o"
 	@echo "... src/Grid.i"
 	@echo "... src/Grid.s"
+	@echo "... src/Level.o"
+	@echo "... src/Level.i"
+	@echo "... src/Level.s"
+	@echo "... src/Levels.o"
+	@echo "... src/Levels.i"
+	@echo "... src/Levels.s"
 	@echo "... src/MainMenu.o"
 	@echo "... src/MainMenu.i"
 	@echo "... src/MainMenu.s"
