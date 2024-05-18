@@ -52,6 +52,7 @@ void Grid::Draw(int* ptr) {
         for (int col = 0; col < gridSize.numCol; col++) {
             cellValue = gridArray[row][col];
             //Display the each gridcell using display rectangle RAYLIB method
+            ClearBackground(DARKGRAY);
             DrawRectangle(col * gridSize.cellSize+1, row * gridSize.cellSize+1, gridSize.cellSize-1, gridSize.cellSize-1, colors[cellValue]);
             //std::cout << "rectangle Drawn at row:" << row+1 << " And Column:" << col+1 << std::endl << "Cell value is:" << cellValue << std::endl;
         }

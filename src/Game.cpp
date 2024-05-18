@@ -1,5 +1,6 @@
 #include "raylib-cpp.hpp"
 #include "Grid.hpp"
+#include "Game.hpp"
 #include "MainMenu.hpp"
 #include "Window.hpp"
 #include <iostream>
@@ -28,6 +29,7 @@ void Game::Run() {
                 break;
             case 2:
                 grid.Draw(_statePtr);
+                break;
         }
     }
     CloseWindow();
