@@ -1,5 +1,7 @@
 #include "Block.hpp"
 #include "Position.hpp"
+#include "Blocks.cpp"
+#include <iostream>
 
 Block::Block(){
     cellSize = 30;
@@ -11,7 +13,9 @@ Block::Block(){
 }
 
 void Block::Draw(){
+    std::cout << "Ran to draw" << std::endl;
     std::vector<Position> tiles = getCellPosition();
+    std::cout << "Got Cell position" << std::endl;
     for(Position item: tiles){
         DrawRectangle((item.column * cellSize +1), item.row * cellSize + 1, cellSize -1, cellSize - 1, colors[id]);
     }
@@ -23,7 +27,9 @@ void Block::Move(int rows, int columns) {
 }
 
 std::vector<Position> Block::getCellPosition() {
+    std::cout << "Ran to getCellPostion" << std::endl;
     std::vector<Position> tiles = cells[rotationState];
+    std::cout << "Got rotationstate" << std::endl;
     std::vector<Position> movedTiles;
     for(Position item : tiles) {
         Position newPos(int(item.row +rowOffset), int(item.column + columnOffset));

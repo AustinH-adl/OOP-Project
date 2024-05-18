@@ -1,5 +1,7 @@
 #include "Grid.hpp"
 #include "raylib-cpp.hpp"
+#include "Block.hpp"
+#include "Blocks.cpp"
 #include "Levels.hpp"
 #include "Colors.hpp"
 #include <vector>
@@ -12,6 +14,7 @@ Grid::Grid(int i) {
     Initialize(0);
     Colors c;
     colors = c.ReturnColors();
+    currentBlock = new OBlock();
 }
 
 Grid::Grid() {
@@ -36,6 +39,10 @@ void Grid::Initialize(int i) {
     } 
 }
 
+Block *Grid::Get_Block() { 
+    return currentBlock;
+}
+
 void Grid::Print() {
     for (int row = 0; row < gridSize.numRows; row++) {
         for (int col = 0; col < gridSize.numCol; col++) {
@@ -54,8 +61,13 @@ void Grid::Draw(int* ptr) {
             //Display the each gridcell using display rectangle RAYLIB method
             ClearBackground(DARKGRAY);
             DrawRectangle(col * gridSize.cellSize+1, row * gridSize.cellSize+1, gridSize.cellSize-1, gridSize.cellSize-1, colors[cellValue]);
-            //std::cout << "rectangle Drawn at row:" << row+1 << " And Column:" << col+1 << std::endl << "Cell value is:" << cellValue << std::endl;
+            std::cout << "rectangle Drawn at row:" << row+1 << " And Column:" << col+1 << std::endl << "Cell value is:" << cellValue << std::endl;
         }
     }
     EndDrawing();
+    currentBlock->Draw();
+}
+
+Grid::~Grid() {
+    delete currentBlock;
 }

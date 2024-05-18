@@ -15,7 +15,7 @@ class Block{
         Block();
         int id;
         std::map<int, std::vector<Position>> cells;
-        virtual void Draw();
+        void Draw();
         void Move(int, int);
         std::vector<Position> getCellPosition();
 };
