@@ -1,4 +1,4 @@
-#include "Block.h"
+/*#include "Block.hpp"
 #include "Grid.hpp"
 
 Block::Block(){
@@ -13,4 +13,4 @@ void Block::Draw(){
         DrawRectangle(item.column * cellSize +1, item.row * cellSize + 1, cellSize -1, cellSize - 1, colors);
     }
 
-}
+} */
