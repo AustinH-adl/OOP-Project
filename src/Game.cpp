@@ -28,7 +28,7 @@ void Game::Run() {
                 this->_menu->Draw(_statePtr);
                 break;
             case 2:
-                std::cout << "Ran to grid.draw" << std::endl;
+                Input();
                 this->_grid->Draw(_statePtr);
                 break;
         }
@@ -46,6 +46,15 @@ void Game::Input() {
     {
     case KEY_UP:
         MoveBlock(0);
+        break;
+    case KEY_DOWN:
+        MoveBlock(1);
+        break;
+    case KEY_LEFT:
+        MoveBlock(2);
+        break;
+    case KEY_RIGHT:
+        MoveBlock(3);
         break;
     }
 }

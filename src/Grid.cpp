@@ -65,8 +65,8 @@ void Grid::Draw(int* ptr) {
             std::cout << "rectangle Drawn at row:" << row+1 << " And Column:" << col+1 << std::endl << "Cell value is:" << cellValue << std::endl;
         }
     }
-    EndDrawing();
     currentBlock->Draw();
+    EndDrawing();
 }
 
 Grid::~Grid() {
