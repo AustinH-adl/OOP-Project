@@ -17,4 +17,5 @@ class Game {
         Game();
         void Run(); //method which desplays the Game/window
         void changeState(int);
+        void Input();
 };
