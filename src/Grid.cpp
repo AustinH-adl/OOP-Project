@@ -57,8 +57,3 @@ void Grid::Draw(int* ptr) {
     }
     EndDrawing();
 }
-
-std::vector<Color> Grid::GetColor() {
-    //std::cout << "GetColor run" << std::endl;
-    return {LIGHTGRAY, YELLOW, PINK, RED, BLUE}; //returns a vector of different colour values
-}

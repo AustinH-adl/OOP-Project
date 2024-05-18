@@ -5,6 +5,7 @@
 #include "Grid.hpp"
 #include "MainMenu.hpp"
 #include <vector>
+#include "Colors.h"
 
 struct _gridSize {
     int numRows; //Number of rows

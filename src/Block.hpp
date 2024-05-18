@@ -1,16 +1,20 @@
 #pragma once
-
-#include <map>
 #include <vector>
+#include <map>
 #include "Position.hpp"
+#include "Colors.hpp"
 
-class Block {
-    public:
-        Block(int id);
-        int Get_Id();
-        std::map<int, std::vector<Position>> cells;
+class Block{
+
     private:
-        int id;
         int cellSize;
         int rotationState;
+        std::vector<Color> colors;
+        
+    public:
+        Block();
+        int id;
+        std::map<int, std::vector<Position>> cells;
+        void Draw();
+
 };

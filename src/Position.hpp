@@ -1,6 +1,5 @@
 #pragma once
 
-//Position class used as a data type to return a row and column
 class Position{
     private:
         int row;
