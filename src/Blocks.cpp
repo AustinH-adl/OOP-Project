@@ -1,4 +1,3 @@
-#pragma once
 #include "Block.hpp"
 #include <vector>
 #include <map>

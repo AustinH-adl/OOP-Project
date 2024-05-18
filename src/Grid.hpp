@@ -5,7 +5,7 @@
 #include "Grid.hpp"
 #include "MainMenu.hpp"
 #include <vector>
-#include "Colors.h"
+#include "Colors.hpp"
 
 struct _gridSize {
     int numRows; //Number of rows
@@ -24,5 +24,4 @@ class Grid {
         void Draw(int*); //Method which displays the grid
         void Print(); //Print method for testing
         void Initialize(int); //Method which initializes all data members along with Grid constructor
-        std::vector<Color> GetColor(); // Method which returns a vector of colours.
 };

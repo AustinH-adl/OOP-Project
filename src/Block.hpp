@@ -5,16 +5,14 @@
 #include "Colors.hpp"
 
 class Block{
-
-    private:
+    protected:
         int cellSize;
         int rotationState;
         std::vector<Color> colors;
-        
     public:
         Block();
         int id;
         std::map<int, std::vector<Position>> cells;
-        void Draw();
+        virtual void Draw();
 
 };

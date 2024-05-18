@@ -2,6 +2,7 @@
 #include "raylib-cpp.hpp"
 #include "Menu.hpp"
 #include "Levels.hpp"
+#include "Colors.hpp"
 #include <vector>
 #include <iostream>
 
@@ -10,14 +11,16 @@ Grid::Grid(int i) {
     this->gridSize.numCol = 10;
     this->gridSize.cellSize = 30;
     Initialize(0);
-    colors = GetColor();
+    Colors c;
+    colors = c.ReturnColors();
 }
 
 Grid::Grid() {
     this->gridSize.numRows = 20;
     this->gridSize.numCol = 10;
     this->gridSize.cellSize = 30;
-    colors = GetColor();
+    Colors c;
+    colors = c.ReturnColors();
     Initialize(0);
 }
 
@@ -25,7 +28,6 @@ void Grid::Initialize(int i) {
     //iterates through the gridarray and sets all elements to 0
     Level1 map;
     std::vector<std::vector<int>> mapVec = map.returnMap();
-    colors = GetColor();
     if (i==0) {
         for (int row = 0; row < gridSize.numRows; row++) {
             for (int col = 0; col < gridSize.numCol; col++) {

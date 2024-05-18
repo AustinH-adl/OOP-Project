@@ -1,14 +1,18 @@
 #pragma once
-#include <raylib.h>
+#include <raylib.hpp>
 #include <vector>
 
-extern const Color darkGrey;
-extern const Color green;
-extern const Color red;
-extern const Color orange;
-extern const Color yellow;
-extern const Color purple;
-extern const Color cyan;
-extern const Color blue;
-
-std::vector<Color> GetColor();
+class Colors {
+    private:
+        Color darkGrey;
+        Color green;
+        Color red;
+        Color orange;
+        Color yellow;
+        Color purple;
+        Color cyan;
+        Color blue;
+    public:
+        Colors();
+        std::vector<Color> ReturnColors();
+};
