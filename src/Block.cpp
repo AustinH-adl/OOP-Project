@@ -26,7 +26,7 @@ std::vector<Position> Block::getCellPosition() {
     std::vector<Position> tiles = cells[rotationState];
     std::vector<Position> movedTiles;
     for(Position item : tiles) {
-        Position newPos = Position(item.row +rowOffset, item.column + columnOffset);
+        Position newPos(int(item.row +rowOffset), int(item.column + columnOffset));
         movedTiles.push_back(newPos);
     }
     return movedTiles;

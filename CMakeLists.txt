@@ -5,7 +5,7 @@ project(TetriCity)
 add_subdirectory(libs/raylib-cpp)
 
 # Set source files
-set(SOURCES src/Block.cpp src/Block.hpp src/Blocks.cpp src/Colors.cpp src/Colors.hpp src/main.cpp src/Game.hpp src/Game.cpp src/Grid.hpp src/Grid.cpp src/Level.hpp src/Level.cpp src/Levels.hpp src/Levels.cpp src/MainMenu.hpp src/MainMenu.cpp)
+set(SOURCES src/Position.hpp src/Position.cpp src/Block.cpp src/Block.hpp src/Blocks.cpp src/Colors.cpp src/Colors.hpp src/main.cpp src/Game.hpp src/Game.cpp src/Grid.hpp src/Grid.cpp src/Level.hpp src/Level.cpp src/Levels.hpp src/Levels.cpp src/MainMenu.hpp src/MainMenu.cpp)
 
 # Include and link directories
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/libs/raylib-cpp/include ${CMAKE_CURRENT_SOURCE_DIR}/src)
