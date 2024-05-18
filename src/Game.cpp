@@ -5,7 +5,7 @@
 #include <iostream>
 #include <string>
 
-Menu::Menu() {
+Game::Game() {
     this->_width = 300;
     this->_height = 600;
     this->_title = "TetriCity";
@@ -13,7 +13,7 @@ Menu::Menu() {
     this->_statePtr = &_windowState;
 }
 
-void Menu::Run() {
+void Game::Run() {
     InitWindow(_width, _height, _title); //Initialize window with width, height and title members. 
     SetTargetFPS(60);
     Grid grid;
@@ -33,6 +33,6 @@ void Menu::Run() {
     CloseWindow();
 }
 
-void Menu::changeState(int i) {
+void Game::changeState(int i) {
     this->_windowState = i;
 }

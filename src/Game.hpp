@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 
-class Menu {
+class Game {
     private:
         int _width;
         int _height;
@@ -14,7 +14,7 @@ class Menu {
         int _windowState;
         int *_statePtr;
     public:
-        Menu();
-        void Run(); //method which desplays the menu/window
+        Game();
+        void Run(); //method which desplays the Game/window
         void changeState(int);
 };
