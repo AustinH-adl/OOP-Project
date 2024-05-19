@@ -9,16 +9,14 @@ Block::Block(){
     Colors c;
     std::vector<Color> colors = c.ReturnColors();
     rowOffset = 2;
-    columnOffset = 1;
+    columnOffset = 2;
 }
 
 void Block::Draw(){
-    std::cout << "Ran to draw" << std::endl;
     std::vector<Position> tiles = getCellPosition();
-    std::cout << "Got Cell position" << std::endl;
+    std::cout << "GetCellPos ran" << std::endl;
     for(Position item: tiles){
-        DrawRectangle((item.column * cellSize +1), (item.row * cellSize + 1), cellSize -1, cellSize - 1, RED);
-        std::cout << "Drawing rectangle" << std::endl;
+        DrawRectangle((item.column * cellSize +1), (item.row * cellSize + 1), (cellSize -1), (cellSize - 1), RED);
     }
 }
 
@@ -28,13 +26,14 @@ void Block::Move(int rows, int columns) {
 }
 
 std::vector<Position> Block::getCellPosition() {
-    std::cout << "Ran to getCellPostion" << std::endl;
+    std::cout << "Get cell started" << std::endl;
     std::vector<Position> tiles = cells[rotationState];
-    std::cout << "Got rotationstate" << std::endl;
+    std::cout << "Tiles obtained" << std::endl;
     std::vector<Position> movedTiles;
     for(Position item : tiles) {
         Position newPos(int(item.row +rowOffset), int(item.column + columnOffset));
         movedTiles.push_back(newPos);
+        std::cout << "Pushed to movedtiles" << std::endl;
     }
     return movedTiles;
 }

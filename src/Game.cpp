@@ -62,6 +62,9 @@ void Game::Input() {
     case KEY_T:
         rotateBlock(1);
         break;
+    case KEY_ENTER:
+        placeBlock(0);
+        break;
     }
 }
 
@@ -131,4 +134,9 @@ bool Game::isBlockOutside() {
 Game::~Game() {
     delete _menu;
     delete _grid;
+}
+
+void Game::placeBlock(int i) {
+    std::vector<Position> tiles = currentBlock->getCellPosition();
+    _grid->place(tiles);
 }

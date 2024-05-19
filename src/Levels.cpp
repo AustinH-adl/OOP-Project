@@ -1,5 +1,6 @@
 #include "Levels.hpp"
 #include "Level.hpp"
+#include "Blocks.cpp"
 #include <vector>
 
 Level1::Level1() {
@@ -24,6 +25,7 @@ Level1::Level1() {
         {0,0,0,0,0,0,0,0,0,0},
         {0,0,0,0,0,0,0,0,0,0},  
         {0,0,0,0,0,0,0,0,0,0}};
+    this->blocks = {new TBlock(), new LBlock(), new CBlock()};
 }
 
 Level2::Level2() {
