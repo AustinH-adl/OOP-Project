@@ -56,6 +56,11 @@ void Game::Input() {
     case KEY_RIGHT:
         MoveBlock(3);
         break;
+    case KEY_R:
+        this->currentBlock->Rotate(0);
+        break;
+    case KEY_T:
+        this->currentBlock->Rotate(1);
     }
 }
 

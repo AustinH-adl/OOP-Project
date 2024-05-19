@@ -14,7 +14,7 @@ Grid::Grid(int i) {
     Initialize(0);
     Colors c;
     colors = c.ReturnColors();
-    currentBlock = new OBlock();
+    currentBlock = new TBlock();
 }
 
 Grid::Grid() {
@@ -24,7 +24,7 @@ Grid::Grid() {
     Colors c;
     colors = c.ReturnColors();
     Initialize(0);
-    currentBlock = new OBlock();
+    currentBlock = new TBlock();
 }
 
 void Grid::Initialize(int i) {

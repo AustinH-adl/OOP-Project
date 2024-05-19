@@ -38,3 +38,17 @@ std::vector<Position> Block::getCellPosition() {
     }
     return movedTiles;
 }
+
+void Block::Rotate(int i) {
+    if(i==0) {
+        rotationState++;
+        if(rotationState==cells.size()) {
+            rotationState = 0;
+        }
+    } else if (i == 1) {
+        rotationState--;
+        if (rotationState<0) {
+            rotationState = cells.size();
+        }
+    }
+}
