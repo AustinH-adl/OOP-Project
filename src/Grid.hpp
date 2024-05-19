@@ -1,10 +1,11 @@
 #pragma once
 
 #include "raylib-cpp.hpp"
-#include "Menu.hpp"
 #include "Grid.hpp"
 #include "MainMenu.hpp"
 #include <vector>
+#include "Colors.hpp"
+#include "Block.hpp"
 
 struct _gridSize {
     int numRows; //Number of rows
@@ -16,6 +17,8 @@ class Grid {
     private:
         _gridSize gridSize; 
         std::vector<Color> colors; // Vector of colours which is instanciated by GetColor method.
+        Block* currentBlock;
+        std::vector<Block> blocks;
     public:
         int gridArray[20][10]; //Multilevel array of integers representing the map. array[row][column]
         Grid(); 
@@ -23,5 +26,7 @@ class Grid {
         void Draw(int*); //Method which displays the grid
         void Print(); //Print method for testing
         void Initialize(int); //Method which initializes all data members along with Grid constructor
-        std::vector<Color> GetColor(); // Method which returns a vector of colours.
+        Block* Get_Block();
+        bool IsCellOutside(int row, int column);
+        ~Grid();
 };

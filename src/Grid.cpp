@@ -1,7 +1,9 @@
 #include "Grid.hpp"
 #include "raylib-cpp.hpp"
-#include "Menu.hpp"
+#include "Block.hpp"
+#include "Blocks.cpp"
 #include "Levels.hpp"
+#include "Colors.hpp"
 #include <vector>
 #include <iostream>
 
@@ -10,22 +12,25 @@ Grid::Grid(int i) {
     this->gridSize.numCol = 10;
     this->gridSize.cellSize = 30;
     Initialize(0);
-    colors = GetColor();
+    Colors c;
+    colors = c.ReturnColors();
+    currentBlock = new TBlock();
 }
 
 Grid::Grid() {
     this->gridSize.numRows = 20;
     this->gridSize.numCol = 10;
     this->gridSize.cellSize = 30;
-    colors = GetColor();
+    Colors c;
+    colors = c.ReturnColors();
     Initialize(0);
+    currentBlock = new TBlock();
 }
 
 void Grid::Initialize(int i) {
     //iterates through the gridarray and sets all elements to 0
     Level1 map;
     std::vector<std::vector<int>> mapVec = map.returnMap();
-    colors = GetColor();
     if (i==0) {
         for (int row = 0; row < gridSize.numRows; row++) {
             for (int col = 0; col < gridSize.numCol; col++) {
@@ -33,6 +38,17 @@ void Grid::Initialize(int i) {
             }
         }
     } 
+}
+
+Block *Grid::Get_Block() { 
+    return currentBlock;
+}
+
+bool Grid::IsCellOutside(int row, int column) {
+    if (row>=0 && row < gridSize.numRows && column >= 0 && column < gridSize.numCol) {
+        return false;
+    }
+    return true;
 }
 
 void Grid::Print() {
@@ -51,14 +67,15 @@ void Grid::Draw(int* ptr) {
         for (int col = 0; col < gridSize.numCol; col++) {
             cellValue = gridArray[row][col];
             //Display the each gridcell using display rectangle RAYLIB method
+            ClearBackground(DARKGRAY);
             DrawRectangle(col * gridSize.cellSize+1, row * gridSize.cellSize+1, gridSize.cellSize-1, gridSize.cellSize-1, colors[cellValue]);
-            //std::cout << "rectangle Drawn at row:" << row+1 << " And Column:" << col+1 << std::endl << "Cell value is:" << cellValue << std::endl;
+            std::cout << "rectangle Drawn at row:" << row+1 << " And Column:" << col+1 << std::endl << "Cell value is:" << cellValue << std::endl;
         }
     }
+    currentBlock->Draw();
     EndDrawing();
 }
 
-std::vector<Color> Grid::GetColor() {
-    //std::cout << "GetColor run" << std::endl;
-    return {LIGHTGRAY, YELLOW, PINK, RED, BLUE}; //returns a vector of different colour values
+Grid::~Grid() {
+    delete currentBlock;
 }

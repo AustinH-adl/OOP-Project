@@ -1,11 +1,11 @@
 #include "raylib-cpp.hpp"
-#include "Menu.hpp"
+#include "Game.hpp"
 #include "Grid.hpp"
 #include "MainMenu.hpp"
 #include <iostream>
 #include <string>
 
 int main() {
-    Menu menu;
-    menu.Run();
+    Game game;
+    game.Run();
 }
