@@ -57,10 +57,14 @@ void Game::Input() {
         MoveBlock(3);
         break;
     case KEY_R:
-        this->currentBlock->Rotate(0);
+        rotateBlock(0);
         break;
     case KEY_T:
-        this->currentBlock->Rotate(1);
+        rotateBlock(1);
+        break;
+    case KEY_ENTER:
+        placeBlock(0);
+        break;
     }
 }
 
@@ -96,6 +100,23 @@ void Game::MoveBlock(int direction) //Direction corresponds to up(0), down(1), l
     }
 }
 
+void Game::rotateBlock(int i) {
+    switch(i) {
+        case 0:
+            currentBlock->Rotate(0);
+            if (isBlockOutside()) {
+                currentBlock->Rotate(1);
+            }
+            break;
+        case 1:
+            currentBlock->Rotate(1);
+            if (isBlockOutside()) {
+                currentBlock->Rotate(0);
+            }
+            break;
+    }
+}
+
 Block *Game::getCurrentBlock() {
     return _grid->Get_Block();
 }
@@ -103,7 +124,7 @@ Block *Game::getCurrentBlock() {
 bool Game::isBlockOutside() {
     std::vector<Position> tiles = currentBlock->getCellPosition();
     for (Position item : tiles) {
-        if(_grid->IsCellOutside(item.row, item.column)) {
+        if(!_grid->IsCellOutside(item.row, item.column)) {
             return true;
         }
     }
@@ -113,4 +134,9 @@ bool Game::isBlockOutside() {
 Game::~Game() {
     delete _menu;
     delete _grid;
+}
+
+void Game::placeBlock(int i) {
+    std::vector<Position> tiles = currentBlock->getCellPosition();
+    _grid->place(tiles);
 }

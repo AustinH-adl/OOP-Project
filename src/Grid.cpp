@@ -6,6 +6,7 @@
 #include "Colors.hpp"
 #include <vector>
 #include <iostream>
+#include <cstdlib>
 
 Grid::Grid(int i) {
     this->gridSize.numRows = 20;
@@ -14,7 +15,6 @@ Grid::Grid(int i) {
     Initialize(0);
     Colors c;
     colors = c.ReturnColors();
-    currentBlock = new TBlock();
 }
 
 Grid::Grid() {
@@ -24,31 +24,36 @@ Grid::Grid() {
     Colors c;
     colors = c.ReturnColors();
     Initialize(0);
-    currentBlock = new TBlock();
 }
 
 void Grid::Initialize(int i) {
     //iterates through the gridarray and sets all elements to 0
-    Level1 map;
-    std::vector<std::vector<int>> mapVec = map.returnMap();
+    Level1 lvl1;
+    std::vector<std::vector<int>> mapVec = lvl1.returnMap();
+    blocks = lvl1.returnBlocks();
     if (i==0) {
         for (int row = 0; row < gridSize.numRows; row++) {
             for (int col = 0; col < gridSize.numCol; col++) {
                 gridArray[row][col] = mapVec[row][col];
             }
         }
-    } 
+    }
+    std::cout << "Ran through init" << std::endl;
+    currentBlock = new LBlock();
 }
 
-Block *Grid::Get_Block() { 
+Block* Grid::Get_Block() {
     return currentBlock;
 }
 
 bool Grid::IsCellOutside(int row, int column) {
+    /*
     if (row>=0 && row < gridSize.numRows && column >= 0 && column < gridSize.numCol) {
         return false;
     }
     return true;
+    */
+   return IsCellPlacable(row, column);
 }
 
 void Grid::Print() {
@@ -77,5 +82,26 @@ void Grid::Draw(int* ptr) {
 }
 
 Grid::~Grid() {
-    delete currentBlock;
+
+}
+
+bool Grid::IsCellPlacable(int row, int column) {
+    if (gridArray[row][column]>0) {
+        return true;
+    }
+    return false;
+}
+
+void Grid::place(std::vector<Position> tiles) {
+    for (Position items : tiles) {
+        gridArray[items.row][items.column] = this->currentBlock->id;
+    }
+};
+
+void Grid::newBlock() {
+    std::cout << "Started new block" << std::endl;
+    int rand = std::rand() % (blocks.size() + 1);
+    std::cout << "random int aquired" << std::endl;
+    this->currentBlock = this->blocks[rand];
+    std::cout << "current block assigned" << std::endl;
 }
