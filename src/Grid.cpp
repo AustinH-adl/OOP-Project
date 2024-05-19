@@ -3,6 +3,7 @@
 #include "Block.hpp"
 #include "Blocks.cpp"
 #include "Levels.hpp"
+#include "Level.hpp"
 #include "Colors.hpp"
 #include <vector>
 #include <iostream>
@@ -28,9 +29,9 @@ Grid::Grid() {
 
 void Grid::Initialize(int i) {
     //iterates through the gridarray and sets all elements to 0
-    Level1 lvl1;
-    std::vector<std::vector<int>> mapVec = lvl1.returnMap();
-    blocks = lvl1.returnBlocks();
+    lvl = new Level1();
+    std::vector<std::vector<int>> mapVec = lvl->returnMap();
+    blocks = lvl->returnBlocks();
     if (i==0) {
         for (int row = 0; row < gridSize.numRows; row++) {
             for (int col = 0; col < gridSize.numCol; col++) {
@@ -82,7 +83,6 @@ void Grid::Draw(int* ptr) {
 }
 
 Grid::~Grid() {
-
 }
 
 bool Grid::IsCellPlacable(int row, int column) {

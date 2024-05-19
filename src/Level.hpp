@@ -10,4 +10,5 @@ class Level {
         std::vector<Block*> blocks;
         std::vector<std::vector<int>> returnMap();
         std::vector<Block*> returnBlocks();
+        ~Level();
 };
