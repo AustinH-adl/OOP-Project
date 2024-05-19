@@ -24,5 +24,6 @@ class Game {
         void Input();
         void MoveBlock(int);
         Block* getCurrentBlock();
+        bool isBlockOutside();
         ~Game();
 };

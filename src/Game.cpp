@@ -66,21 +66,43 @@ void Game::MoveBlock(int direction) //Direction corresponds to up(0), down(1), l
     {
     case 0:
         currentBlock->Move(-1, 0);
+        if (isBlockOutside()){
+            currentBlock->Move(1, 0);
+        }
         break;
     case 1:
         currentBlock->Move(1, 0);
+        if (isBlockOutside()){
+            currentBlock->Move(-1, 0);
+        }
         break;
     case 2:
         currentBlock->Move(0, -1);
+        if (isBlockOutside()){
+            currentBlock->Move(0, 1);
+        }
         break;
     case 3:
         currentBlock->Move(0, 1);
+        if (isBlockOutside()){
+            currentBlock->Move(0, -1);
+        }
         break;
     }
 }
 
 Block *Game::getCurrentBlock() {
     return _grid->Get_Block();
+}
+
+bool Game::isBlockOutside() {
+    std::vector<Position> tiles = currentBlock->getCellPosition();
+    for (Position item : tiles) {
+        if(_grid->IsCellOutside(item.row, item.column)) {
+            return true;
+        }
+    }
+    return false;
 }
 
 Game::~Game() {

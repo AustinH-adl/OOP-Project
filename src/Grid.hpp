@@ -27,5 +27,6 @@ class Grid {
         void Print(); //Print method for testing
         void Initialize(int); //Method which initializes all data members along with Grid constructor
         Block* Get_Block();
+        bool IsCellOutside(int row, int column);
         ~Grid();
 };

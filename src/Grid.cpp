@@ -44,6 +44,13 @@ Block *Grid::Get_Block() {
     return currentBlock;
 }
 
+bool Grid::IsCellOutside(int row, int column) {
+    if (row>=0 && row < gridSize.numRows && column >= 0 && column < gridSize.numCol) {
+        return false;
+    }
+    return true;
+}
+
 void Grid::Print() {
     for (int row = 0; row < gridSize.numRows; row++) {
         for (int col = 0; col < gridSize.numCol; col++) {
