@@ -16,13 +16,15 @@ void Block::Draw(){
     std::vector<Position> tiles = getCellPosition();
     std::cout << "GetCellPos ran" << std::endl;
     for(Position item: tiles){
-        DrawRectangle((item.column * cellSize +1), (item.row * cellSize + 1), (cellSize -1), (cellSize - 1), RED);
+        DrawRectangle(int(item.column * cellSize +1), int(item.row * cellSize + 1), int(cellSize -1), int(cellSize - 1), RED);
     }
 }
 
 void Block::Move(int rows, int columns) {
+    std::cout << "RowOffset before: " << rowOffset << "ColumnOffset before: " << columnOffset << std::endl;
     rowOffset +=rows;
     columnOffset +=columns;
+    std::cout << "RowOffset after: " << rowOffset << "ColumnOffset after: " << columnOffset << std::endl;
 }
 
 std::vector<Position> Block::getCellPosition() {

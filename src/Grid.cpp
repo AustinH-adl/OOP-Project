@@ -39,7 +39,7 @@ void Grid::Initialize(int i) {
         }
     }
     std::cout << "Ran through init" << std::endl;
-    currentBlock = new LBlock();
+    this->newBlock();
 }
 
 Block* Grid::Get_Block() {
@@ -94,14 +94,15 @@ bool Grid::IsCellPlacable(int row, int column) {
 
 void Grid::place(std::vector<Position> tiles) {
     for (Position items : tiles) {
-        gridArray[items.row][items.column] = this->currentBlock->id;
+        gridArray[items.row][items.column] = currentBlock->id;
     }
-};
+}
 
 void Grid::newBlock() {
-    std::cout << "Started new block" << std::endl;
-    int rand = std::rand() % (blocks.size() + 1);
-    std::cout << "random int aquired" << std::endl;
-    this->currentBlock = this->blocks[rand];
-    std::cout << "current block assigned" << std::endl;
+    if (blocks.size()>0) {
+        int index = rand() % blocks.size();
+        Block* block = blocks[index];
+        blocks.erase(blocks.begin()+index);
+        currentBlock = block;
+    }
 }

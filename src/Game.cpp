@@ -64,6 +64,7 @@ void Game::Input() {
         break;
     case KEY_ENTER:
         placeBlock(0);
+        _grid->newBlock();
         break;
     }
 }
@@ -117,7 +118,7 @@ void Game::rotateBlock(int i) {
     }
 }
 
-Block *Game::getCurrentBlock() {
+Block* Game::getCurrentBlock() {
     return _grid->Get_Block();
 }
 
