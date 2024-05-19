@@ -37,18 +37,21 @@ void Grid::Initialize(int i) {
                 gridArray[row][col] = mapVec[row][col];
             }
         }
-    } 
+    }
 }
 
-Block *Grid::Get_Block() { 
+Block *Grid::Get_Block() {
     return currentBlock;
 }
 
 bool Grid::IsCellOutside(int row, int column) {
+    /*
     if (row>=0 && row < gridSize.numRows && column >= 0 && column < gridSize.numCol) {
         return false;
     }
     return true;
+    */
+   return IsCellPlacable(row, column);
 }
 
 void Grid::Print() {
@@ -78,4 +81,11 @@ void Grid::Draw(int* ptr) {
 
 Grid::~Grid() {
     delete currentBlock;
+}
+
+bool Grid::IsCellPlacable(int row, int column) {
+    if (gridArray[row][column]>0) {
+        return true;
+    }
+    return false;
 }

@@ -23,6 +23,7 @@ class Game {
         void changeState(int);
         void Input();
         void MoveBlock(int);
+        void rotateBlock(int);
         Block* getCurrentBlock();
         bool isBlockOutside();
         ~Game();

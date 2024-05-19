@@ -8,8 +8,8 @@ Block::Block(){
     rotationState = 0;
     Colors c;
     std::vector<Color> colors = c.ReturnColors();
-    rowOffset = 0;
-    columnOffset = 0;
+    rowOffset = 2;
+    columnOffset = 1;
 }
 
 void Block::Draw(){
@@ -17,7 +17,7 @@ void Block::Draw(){
     std::vector<Position> tiles = getCellPosition();
     std::cout << "Got Cell position" << std::endl;
     for(Position item: tiles){
-        DrawRectangle((item.column * cellSize +1), item.row * cellSize + 1, cellSize -1, cellSize - 1, RED);
+        DrawRectangle((item.column * cellSize +1), (item.row * cellSize + 1), cellSize -1, cellSize - 1, RED);
         std::cout << "Drawing rectangle" << std::endl;
     }
 }

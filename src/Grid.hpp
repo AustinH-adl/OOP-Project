@@ -28,5 +28,6 @@ class Grid {
         void Initialize(int); //Method which initializes all data members along with Grid constructor
         Block* Get_Block();
         bool IsCellOutside(int row, int column);
+        bool IsCellPlacable(int row, int column);
         ~Grid();
 };
