@@ -2,7 +2,7 @@
 
 #include "raylib-cpp.hpp"
 #include "Grid.hpp"
-#include "MainMenu.hpp"
+#include "Menus.hpp"
 #include <vector>
 #include "Colors.hpp"
 #include "Block.hpp"

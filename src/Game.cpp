@@ -5,9 +5,12 @@
 
 #include "GameSound.hpp"
 #include "Grid.hpp"
-#include "MainMenu.hpp"
+#include "Menus.hpp"
+#include "Menu.hpp"
 #include "Window.hpp"
 #include "raylib-cpp.hpp"
+#include "StartMenu.cpp"
+#include "TuteMenus.cpp"
 
 Game::Game() {
   this->_width = 300;
@@ -18,6 +21,8 @@ Game::Game() {
   this->_statePtr = &_windowState;
   _menu = new MainMenu();
   _grid = new Grid();
+  start_menu = new StartMenu();
+  Tute_menu1 = new TuteMenu1();
 }
 
 void Game::Run() {
@@ -41,6 +46,11 @@ void Game::Run() {
         Input();
         this->_grid->Draw(_statePtr);
         break;
+      case 3:
+        this->start_menu->Draw(_statePtr);
+        break;
+      case 4:
+        this->Tute_menu1->Draw(_statePtr);
     }
   }
   CloseWindow();

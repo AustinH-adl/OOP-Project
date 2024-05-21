@@ -1,4 +1,4 @@
-#include "MainMenu.hpp"
+#include "Menus.hpp"
 #include "Grid.hpp"
 #include <iostream>
 
@@ -10,21 +10,29 @@ MainMenu::MainMenu() {
 
 void MainMenu::Draw(int* ptr) {
     Vector2 mousePos = {-100.0f, -100.0f}; 
-    Rectangle button = {(this->width/2.0f - 41.0f), (this->height/2.0f-20.0f), (float)82, (float)40};
+    Rectangle start_btn = {(this->width/2.0f - 41.0f), (this->height/2.0f-20.0f), (float)100, (float)40};
+    Rectangle Tute_btn = {(this->width/2.0f -41.0f), (this->height/2.0f+40), (float)100, (float)40};
     mousePos = GetMousePosition();
     BeginDrawing();
         ClearBackground(DARKBLUE); //Set the background to darkblue
         DrawFPS(10, 10);
-        DrawRectangle(button.x, button.y, button.width, button.height, DARKGRAY);
-        DrawText("Play", 140, 280, 20, BLACK);
+        DrawRectangle(start_btn.x, start_btn.y, start_btn.width, start_btn.height, GRAY);
+        DrawText("Play", 140, 290, 20, BLACK);
         DrawText("TetriCity", 108, 100, 20, BLACK);
+        DrawRectangle(Tute_btn.x, Tute_btn.y, Tute_btn.width, Tute_btn.height, GRAY);
+        DrawText("Tutorial", width/2-82/2, height/2+50, 20, BLACK);
         //DrawText("TetriCity", 190, 200, 20, LIGHTGRAY);
     EndDrawing();
-    if (CheckCollisionPointRec(mousePos, button) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
-            ButtonPressed(ptr);
+    if (CheckCollisionPointRec(mousePos, start_btn) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+            StartPressed(ptr);
+    } else if (CheckCollisionPointRec(mousePos, Tute_btn) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+            TutePressed(ptr);
     }
 }
 
-void MainMenu::ButtonPressed(int *ptr) {
-    *ptr = 2;
+void MainMenu::StartPressed(int *ptr) {
+    *ptr = 3;
+}
+void MainMenu::TutePressed(int *ptr) {
+    *ptr = 4;
 }
