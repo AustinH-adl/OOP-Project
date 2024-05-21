@@ -7,16 +7,26 @@ add_subdirectory(libs/raylib)
 
 # Set source files
 set(SOURCES 
-    src/Position.hpp src/Position.cpp 
-    src/Block.cpp src/Block.hpp 
-    src/Blocks.cpp 
-    src/Colors.cpp src/Colors.hpp 
-    src/main.cpp 
-    src/Game.hpp src/Game.cpp 
-    src/Grid.hpp src/Grid.cpp 
-    src/Level.hpp src/Level.cpp 
-    src/Levels.hpp src/Levels.cpp 
-    src/MainMenu.hpp src/MainMenu.cpp
+src/Position.hpp 
+src/Position.cpp 
+src/Block.cpp 
+src/Block.hpp 
+src/Blocks.cpp 
+src/Colors.cpp 
+src/Colors.hpp 
+src/main.cpp 
+src/Game.hpp 
+src/Game.cpp 
+src/Grid.hpp 
+src/Grid.cpp 
+src/Level.hpp 
+src/Level.cpp 
+src/Levels.hpp 
+src/Levels.cpp 
+src/MainMenu.hpp 
+src/MainMenu.cpp
+src/GameSound.hpp
+src/GameSound.cpp
 )
 
 # Include and link directories
