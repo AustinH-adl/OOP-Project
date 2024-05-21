@@ -6,6 +6,7 @@
 #include <vector>
 #include "Colors.hpp"
 #include "Block.hpp"
+#include "Level.hpp"
 
 struct _gridSize {
     int numRows; //Number of rows
@@ -18,7 +19,9 @@ class Grid {
         _gridSize gridSize; 
         std::vector<Color> colors; // Vector of colours which is instanciated by GetColor method.
         Block* currentBlock;
+        std::vector<Block*> placed;
         std::vector<Block*> blocks;
+        Level *lvl;
     public:
         int gridArray[20][10]; //Multilevel array of integers representing the map. array[row][column]
         Grid(); 

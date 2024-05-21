@@ -1,5 +1,6 @@
 #include <vector>
 #include "Level.hpp"
+#include "Block.hpp"
 
 std::vector<std::vector<int>> Level::returnMap() {
     return this->Map;
@@ -10,7 +11,7 @@ std::vector<Block*> Level::returnBlocks() {
 }
 
 Level::~Level() {
-    for(int i; i < blocks.size(); i++) {
-        delete blocks[i];
+    for(Block* items : blocks) {
+        delete items;
     }
 }

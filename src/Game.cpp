@@ -70,9 +70,10 @@ void Game::Input() {
       rotateBlock(1);
       break;
     case KEY_ENTER:
-      placeBlock(0);
-      break;
-  }
+        placeBlock(0);
+        _grid->newBlock();
+        break;
+    }
 }
 
 void Game::MoveBlock(int direction)  // Direction corresponds to up(0), down(1),
@@ -124,7 +125,9 @@ void Game::rotateBlock(int i) {
   }
 }
 
-Block *Game::getCurrentBlock() { return _grid->Get_Block(); }
+Block* Game::getCurrentBlock() {
+    return _grid->Get_Block();
+}
 
 bool Game::isBlockOutside() {
   std::vector<Position> tiles = currentBlock->getCellPosition();
