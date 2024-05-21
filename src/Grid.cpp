@@ -83,6 +83,7 @@ void Grid::Draw(int* ptr) {
 }
 
 Grid::~Grid() {
+    delete currentBlock;
 }
 
 bool Grid::IsCellPlacable(int row, int column) {
@@ -104,5 +105,8 @@ void Grid::newBlock() {
         Block* block = blocks[index];
         blocks.erase(blocks.begin()+index);
         currentBlock = block;
+    } else if(blocks.size() ==0) {
+        currentBlock = new nullBlock();
+        
     }
 }

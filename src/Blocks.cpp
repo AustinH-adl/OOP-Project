@@ -88,3 +88,11 @@ class ZBlock : public Block {
             cells[3] = {Position(0,1), Position(1,0), Position(1,1), Position(2,0)};
         }
 };
+
+class nullBlock : public Block {
+    public:
+        nullBlock() {
+            id = 0;
+            cells[0] = {};
+        }
+};
