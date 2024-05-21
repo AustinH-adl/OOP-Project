@@ -1,8 +1,9 @@
 cmake_minimum_required(VERSION 3.0)
 project(TetriCity)
 
-# Add raylib-cpp
+# Add raylib and raylib-cpp
 add_subdirectory(libs/raylib-cpp)
+add_subdirectory(libs/raylib)
 
 # Set source files
 set(SOURCES 
@@ -29,8 +30,9 @@ src/GameSound.cpp
 )
 
 # Include and link directories
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/libs/raylib-cpp/include ${CMAKE_CURRENT_SOURCE_DIR}/src)
-link_directories(libs/raylib/build/raylib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/libs/raylib-cpp/include 
+                    ${CMAKE_CURRENT_SOURCE_DIR}/libs/raylib/src
+                    ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 # Copy files from resources folder
 file(COPY src/resources DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
@@ -38,7 +40,7 @@ file(COPY src/resources DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 # Create executable
 add_executable(TetriCity ${SOURCES})
 
-# Link against raylib-cpp
+# Link against raylib and raylib-cpp
 target_link_libraries(TetriCity raylib raylib_cpp)
 
 # Set standard cpp to 11
