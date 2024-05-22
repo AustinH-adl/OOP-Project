@@ -20,9 +20,14 @@ Game::Game() {
   this->_soundLocation = "resources/sound.wav";
   this->_statePtr = &_windowState;
   _menu = new MainMenu();
-  _grid = new Grid();
+  /*
+  grid1 = new Grid(1);
+  grid2 = new Grid(2);
+  */
+  _grid = new Grid(1);
   start_menu = new StartMenu();
   Tute_menu1 = new TuteMenu1();
+  Tute_menu2 = new TuteMenu2();
 }
 
 void Game::Run() {
@@ -33,7 +38,6 @@ void Game::Run() {
   GameSound background(0.2, _soundLocation);
   background.Play();
   SetTargetFPS(60);
-
   while (!WindowShouldClose()) {
     switch (this->_windowState) {
       case 0:
@@ -51,6 +55,16 @@ void Game::Run() {
         break;
       case 4:
         this->Tute_menu1->Draw(_statePtr);
+        break;
+      case 5:
+        Input();
+        this->_grid->Draw(_statePtr);
+        break;
+      case 8:
+        this->Tute_menu2->Draw(_statePtr);
+        break;
+      default:
+        break;
     }
   }
   CloseWindow();
@@ -150,8 +164,15 @@ bool Game::isBlockOutside() {
 }
 
 Game::~Game() {
+  delete _grid->ReturnLvl();
   delete _menu;
-  delete _grid;
+  /*
+  delete grid1;
+  delete grid2;
+  */
+  delete Tute_menu1;
+  delete Tute_menu2;
+  delete start_menu;
 }
 
 void Game::placeBlock(int i) {

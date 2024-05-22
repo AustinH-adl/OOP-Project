@@ -13,9 +13,9 @@ Grid::Grid(int i) {
     this->gridSize.numRows = 20;
     this->gridSize.numCol = 10;
     this->gridSize.cellSize = 30;
-    Initialize(0);
     Colors c;
     colors = c.ReturnColors();
+    this->Initialize(i);
 }
 
 Grid::Grid() {
@@ -24,24 +24,26 @@ Grid::Grid() {
     this->gridSize.cellSize = 30;
     Colors c;
     colors = c.ReturnColors();
-    Initialize(0);
 }
 
 void Grid::Initialize(int i) {
     //iterates through the gridarray and sets all elements to 0
     lvl = new Level1();
+    std::cout << "current level" << lvl->returnMap()[5][5] <<  std::endl;
     std::vector<std::vector<int>> mapVec = lvl->returnMap();
-    blocks = lvl->returnBlocks();
-    if (i==0) {
-        for (int row = 0; row < gridSize.numRows; row++) {
-            for (int col = 0; col < gridSize.numCol; col++) {
-                gridArray[row][col] = mapVec[row][col];
-            }
+    std::cout << "current level" << mapVec[5][5] <<  std::endl;
+    blocks = this->lvl->returnBlocks();
+    std::cout << "blocks" << lvl->returnBlocks()[1] <<  std::endl;
+    for (int row = 0; row < gridSize.numRows; row++) {
+        for (int col = 0; col < gridSize.numCol; col++) {
+            gridArray[row][col] = mapVec[row][col];
+            std::cout << gridArray[row][col] << std::endl;
         }
-    }
+    } 
     std::cout << "Ran through init" << std::endl;
     this->newBlock();
-}
+    std::cout << Get_Block()->id;
+ }
 
 Block* Grid::Get_Block() {
     return currentBlock;
@@ -107,6 +109,9 @@ void Grid::newBlock() {
         currentBlock = block;
     } else if(blocks.size() ==0) {
         currentBlock = new nullBlock();
-        
     }
+}
+
+Level* Grid::ReturnLvl() {
+    return lvl;
 }

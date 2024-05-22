@@ -30,11 +30,18 @@ class MainMenu : public Menu {
 };
 
 class TuteMenu1 : public Menu {
+    private:
+        const char* text = "When in a level use the arrow\nkeys to move the current \nblock. When the desired spot \nto  place the block is found \npress enter to permanentlly \nplace the block";
     protected:
         Vector2 pos;
-        const char* HowTo_text;
-        Rectangle next_btn = {float(width-110.0f), float(height-25.0f), 100.0f, 30.0f};
+        Rectangle next_btn = {float(width-125.0f), float(height-50.0f), 100.0f, 30.0f};
     public:
-        TuteMenu1();
+        virtual void Draw(int* Ptr);
+};
+
+class TuteMenu2 : public TuteMenu1 {
+    private:
+        const char* text = "When you place blocks you \nwill gain points and when \nyou place all blocks you win\nthat level.";
+    public:
         void Draw(int* Ptr);
 };
