@@ -25,6 +25,7 @@ void Block::Move(int rows, int columns) {
     rowOffset +=rows;
     columnOffset +=columns;
     std::cout << "RowOffset after: " << rowOffset << "ColumnOffset after: " << columnOffset << std::endl;
+    
 }
 
 std::vector<Position> Block::getCellPosition() {
