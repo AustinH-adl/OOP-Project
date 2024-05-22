@@ -26,6 +26,8 @@ src/Levels.cpp
 src/MainMenu.cpp
 src/GameSound.hpp
 src/GameSound.cpp
+src/Player.cpp
+src/Player.hpp
 src/Menu.hpp
 src/Menus.hpp
 )

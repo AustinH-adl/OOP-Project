@@ -9,11 +9,13 @@
 #include "Menu.hpp"
 #include "Window.hpp"
 #include "raylib-cpp.hpp"
+#include "Player.hpp"
+#include <unistd.h>
 #include "StartMenu.cpp"
 #include "TuteMenus.cpp"
 
 Game::Game() {
-  this->_width = 300;
+  this->_width = 500;
   this->_height = 600;
   this->_title = "TetriCity";
   this->_windowState = 1;
@@ -21,6 +23,7 @@ Game::Game() {
   this->_statePtr = &_windowState;
   _menu = new MainMenu();
   _grid = new Grid();
+  _player = new Player();
   start_menu = new StartMenu();
   Tute_menu1 = new TuteMenu1();
   Tute_menu2 = new TuteMenu2();
@@ -45,6 +48,8 @@ void Game::Run() {
         break;
       case 2:
         Input();
+        drawScore(_player);
+
         this->_grid->Draw(_statePtr);
         break;
       case 3:
@@ -84,10 +89,14 @@ void Game::Input() {
       rotateBlock(1);
       break;
     case KEY_ENTER:
+      if(isBlockPlaceable()){
         placeBlock(0);
         _grid->newBlock();
-        break;
-    }
+      }
+      
+      break;
+  }
+
 }
 
 void Game::MoveBlock(int direction)  // Direction corresponds to up(0), down(1),
@@ -139,9 +148,23 @@ void Game::rotateBlock(int i) {
   }
 }
 
-Block* Game::getCurrentBlock() {
-    return _grid->Get_Block();
+bool Game::isBlockPlaceable(){ //calls is cell outside for each tile of a block 
+    std::vector<Position> tiles = currentBlock->getCellPosition();
+    for (Position item : tiles) { //if the tile enters a grid with val 0 it returns true 
+        if(!_grid->IsCellPlacable(item.row, item.column)) {
+             //Error message is displayed
+            drawError(); 
+            return false;
+            
+        }
+    }
+    
+    return true;
+    
 }
+
+
+Block* Game::getCurrentBlock() { return _grid->Get_Block(); }
 
 bool Game::isBlockOutside() {
   std::vector<Position> tiles = currentBlock->getCellPosition();
@@ -161,4 +184,40 @@ Game::~Game() {
 void Game::placeBlock(int i) {
   std::vector<Position> tiles = currentBlock->getCellPosition();
   _grid->place(tiles);
+  _player->incrementScore(4); 
 }
+
+void Game::drawScore(Player* _player){
+
+    int score = _player->getScore(); //score updates after a block is placed from input
+    //Score visuals
+    Font font = LoadFontEx("Font/monogram.ttf", 64, 0, 0);
+
+    DrawTextEx(font, "Score", {350,10}, 38, 2, WHITE);
+
+    char scoreText[10];
+
+    snprintf(scoreText, sizeof(scoreText), "%d", score);
+    Vector2 textsize = MeasureTextEx(font, scoreText, 38, 2);
+                     // left ,width, right, height
+    DrawRectangleRounded({320, 50, 170, 100}, 0.3, 6, BLUE); //Draw the blue box behind score number
+
+    DrawTextEx(font, scoreText, {380, 75}, 38, 2, WHITE); // Draws number score and updates
+
+}
+
+void Game::drawError(){
+  BeginDrawing();
+    ClearBackground(WHITE);
+    DrawText("Can't place block here", 200, 250, 50, BLACK);
+  EndDrawing();
+  sleep(1);
+}
+
+/*
+bool collisionDetection(int newRowOffset, int newColOffset){
+  std::vector<Position> currentTiles = currentBlock->getCellPosition();
+  for (Position item: currentTiles){int newRow = item.row + newRowOffset;
+  int newCol = item.
+}
+*/

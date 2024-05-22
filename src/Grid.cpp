@@ -48,13 +48,10 @@ Block* Grid::Get_Block() {
 }
 
 bool Grid::IsCellOutside(int row, int column) {
-    /*
-    if (row>=0 && row < gridSize.numRows && column >= 0 && column < gridSize.numCol) {
-        return false;
-    }
+  if (gridArray[row][column] > 0) {
     return true;
-    */
-   return IsCellPlacable(row, column);
+  }
+  return false;
 }
 
 void Grid::Print() {
@@ -78,8 +75,10 @@ void Grid::Draw(int* ptr) {
             std::cout << "rectangle Drawn at row:" << row+1 << " And Column:" << col+1 << std::endl << "Cell value is:" << cellValue << std::endl;
         }
     }
-    currentBlock->Draw();
-    EndDrawing();
+  }
+  //drawBox();
+  currentBlock->Draw();
+  EndDrawing();
 }
 
 Grid::~Grid() {
@@ -87,12 +86,12 @@ Grid::~Grid() {
 }
 
 bool Grid::IsCellPlacable(int row, int column) {
-    if (gridArray[row][column]>0) {
-        return true;
-    }
+  if (gridArray[row][column] == 1) { //if val is 1, cell is placeable
+    return true;
+  } else{
     return false;
+  }
 }
-
 void Grid::place(std::vector<Position> tiles) {
     for (Position items : tiles) {
         gridArray[items.row][items.column] = currentBlock->id;
