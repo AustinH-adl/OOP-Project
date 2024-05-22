@@ -5,10 +5,11 @@
 
 #include "Block.hpp"
 #include "Grid.hpp"
-#include "MainMenu.hpp"
+#include "Menus.hpp"
 #include "raylib-cpp.hpp"
 #include "Player.hpp"
-
+#include "Menu.hpp"
+#include "Menus.hpp"
 
 class Game {
  private:
@@ -22,6 +23,9 @@ class Game {
   Grid *_grid;
   MainMenu *_menu;
   Player* _player;
+  StartMenu *start_menu;
+  TuteMenu1 *Tute_menu1;
+  TuteMenu2 *Tute_menu2;
 
  public:
   Game();

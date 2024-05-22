@@ -23,12 +23,13 @@ src/Level.hpp
 src/Level.cpp 
 src/Levels.hpp 
 src/Levels.cpp 
-src/MainMenu.hpp 
 src/MainMenu.cpp
 src/GameSound.hpp
 src/GameSound.cpp
 src/Player.cpp
 src/Player.hpp
+src/Menu.hpp
+src/Menus.hpp
 )
 
 # Include and link directories

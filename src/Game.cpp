@@ -5,11 +5,14 @@
 
 #include "GameSound.hpp"
 #include "Grid.hpp"
-#include "MainMenu.hpp"
+#include "Menus.hpp"
+#include "Menu.hpp"
 #include "Window.hpp"
 #include "raylib-cpp.hpp"
 #include "Player.hpp"
 #include <unistd.h>
+#include "StartMenu.cpp"
+#include "TuteMenus.cpp"
 
 Game::Game() {
   this->_width = 500;
@@ -21,6 +24,9 @@ Game::Game() {
   _menu = new MainMenu();
   _grid = new Grid();
   _player = new Player();
+  start_menu = new StartMenu();
+  Tute_menu1 = new TuteMenu1();
+  Tute_menu2 = new TuteMenu2();
 }
 
 void Game::Run() {
@@ -46,6 +52,14 @@ void Game::Run() {
 
         this->_grid->Draw(_statePtr);
         break;
+      case 3:
+        this->start_menu->Draw(_statePtr);
+        break;
+      case 4:
+        this->Tute_menu1->Draw(_statePtr);
+        break;
+      case 8:
+        this->Tute_menu2->Draw(_statePtr);
     }
   }
   CloseWindow();
@@ -82,6 +96,7 @@ void Game::Input() {
       
       break;
   }
+
 }
 
 void Game::MoveBlock(int direction)  // Direction corresponds to up(0), down(1),
