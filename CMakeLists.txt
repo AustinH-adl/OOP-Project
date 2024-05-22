@@ -27,6 +27,8 @@ src/MainMenu.hpp
 src/MainMenu.cpp
 src/GameSound.hpp
 src/GameSound.cpp
+src/Player.cpp
+src/Player.hpp
 )
 
 # Include and link directories

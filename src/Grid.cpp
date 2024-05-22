@@ -82,6 +82,7 @@ void Grid::Draw(int* ptr) {
                 << "Cell value is:" << cellValue << std::endl;
     }
   }
+  //drawBox();
   currentBlock->Draw();
   EndDrawing();
 }
@@ -108,4 +109,10 @@ void Grid::newBlock() {
     blocks.erase(blocks.begin() + index);
     currentBlock = block;
   }
+}
+
+void Grid::drawBox(){
+  Font font = LoadFontEx("Font/monogram.ttf", 64, 0, 0);
+  DrawRectangleRounded({320, 50, 170, 100}, 0.3, 6, ORANGE); //Draw the blue box behind score number
+
 }

@@ -7,6 +7,8 @@
 #include "Grid.hpp"
 #include "MainMenu.hpp"
 #include "raylib-cpp.hpp"
+#include "Player.hpp"
+
 
 class Game {
  private:
@@ -19,6 +21,7 @@ class Game {
   Block *currentBlock;
   Grid *_grid;
   MainMenu *_menu;
+  Player* _player;
 
  public:
   Game();
@@ -30,5 +33,8 @@ class Game {
   void placeBlock(int);
   Block *getCurrentBlock();
   bool isBlockOutside();
+  bool isBlockPlaceable();
+  void drawScore(Player* player);
+  void drawError();
   ~Game();
 };

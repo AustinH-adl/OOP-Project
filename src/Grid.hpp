@@ -39,5 +39,6 @@ class Grid {
   void place(std::vector<Position> tiles);
   bool IsCellOutside(int row, int column);
   bool IsCellPlacable(int row, int column);
+  void drawBox();
   ~Grid();
 };
