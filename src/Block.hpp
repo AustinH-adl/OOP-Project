@@ -21,4 +21,5 @@ class Block {
   void Move(int, int);
   std::vector<Position> getCellPosition();
   void Rotate(int i);
+  bool collisionDetection();
 };

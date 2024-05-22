@@ -75,11 +75,10 @@ void Game::Input() {
       rotateBlock(1);
       break;
     case KEY_ENTER:
-      if(!isBlockPlaceable()){
+      if(isBlockPlaceable()){
         placeBlock(0);
         _grid->newBlock();
       }
-      //display pop up can not place 
       
       break;
   }
@@ -138,11 +137,14 @@ bool Game::isBlockPlaceable(){ //calls is cell outside for each tile of a block
     std::vector<Position> tiles = currentBlock->getCellPosition();
     for (Position item : tiles) { //if the tile enters a grid with val 0 it returns true 
         if(!_grid->IsCellPlacable(item.row, item.column)) {
-            drawError();
-            return true;
+             //Error message is displayed
+            drawError(); 
+            return false;
+            
         }
     }
-    return false;
+    
+    return true;
     
 }
 
@@ -196,3 +198,11 @@ void Game::drawError(){
   EndDrawing();
   sleep(1);
 }
+
+/*
+bool collisionDetection(int newRowOffset, int newColOffset){
+  std::vector<Position> currentTiles = currentBlock->getCellPosition();
+  for (Position item: currentTiles){int newRow = item.row + newRowOffset;
+  int newCol = item.
+}
+*/

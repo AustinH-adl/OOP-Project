@@ -36,5 +36,6 @@ class Game {
   bool isBlockPlaceable();
   void drawScore(Player* player);
   void drawError();
+  bool collisionDetection();
   ~Game();
 };

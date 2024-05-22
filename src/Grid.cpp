@@ -48,13 +48,10 @@ void Grid::Initialize(int i) {
 Block* Grid::Get_Block() { return currentBlock; }
 
 bool Grid::IsCellOutside(int row, int column) {
-  /*
-  if (row>=0 && row < gridSize.numRows && column >= 0 && column <
-  gridSize.numCol) { return false;
+  if (gridArray[row][column] > 0) {
+    return true;
   }
-  return true;
-  */
-  return IsCellPlacable(row, column);
+  return false;
 }
 
 void Grid::Print() {
@@ -90,10 +87,12 @@ void Grid::Draw(int* ptr) {
 Grid::~Grid() {}
 
 bool Grid::IsCellPlacable(int row, int column) {
-  if (gridArray[row][column] > 0) {
+  if (gridArray[row][column] == 1) { //if val is 1, cell is placeable
     return true;
+  } else{
+    return false;
+
   }
-  return false;
 }
 
 void Grid::place(std::vector<Position> tiles) {
