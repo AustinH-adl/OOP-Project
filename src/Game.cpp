@@ -23,6 +23,7 @@ Game::Game() {
   _grid = new Grid();
   start_menu = new StartMenu();
   Tute_menu1 = new TuteMenu1();
+  Tute_menu2 = new TuteMenu2();
 }
 
 void Game::Run() {
@@ -51,6 +52,9 @@ void Game::Run() {
         break;
       case 4:
         this->Tute_menu1->Draw(_statePtr);
+        break;
+      case 8:
+        this->Tute_menu2->Draw(_statePtr);
     }
   }
   CloseWindow();
