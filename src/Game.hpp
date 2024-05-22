@@ -23,7 +23,6 @@ class Game {
   MainMenu *_menu;
   StartMenu *start_menu;
   TuteMenu1 *Tute_menu1;
-  TuteMenu2 *Tute_menu2;
 
  public:
   Game();
