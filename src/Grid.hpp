@@ -1,27 +1,30 @@
 #pragma once
 
-#include "raylib-cpp.hpp"
-#include "Grid.hpp"
-#include "Menus.hpp"
 #include <vector>
-#include "Colors.hpp"
+
 #include "Block.hpp"
+#include "Colors.hpp"
+#include "Grid.hpp"
 #include "Level.hpp"
+#include "Menus.hpp"
+#include "raylib-cpp.hpp"
 
 struct _gridSize {
-    int numRows; //Number of rows
-    int numCol; //Number of Columns
-    int cellSize; //Size of cells/tiles in pixels
+  int numRows;   // Number of rows
+  int numCol;    // Number of Columns
+  int cellSize;  // Size of cells/tiles in pixels
 };
 
 class Grid {
  private:
   _gridSize gridSize;
-  std::vector<Color> colors;  // Vector of colours which is instanciated by GetColor method.
+  std::vector<Color>
+      colors;  // Vector of colours which is instanciated by GetColor method.
   Block* currentBlock;
   std::vector<Block*> placed;
   std::vector<Block*> blocks;
   Level* lvl;
+
  public:
   int gridArray[20][10];  // Multilevel array of integers representing the map.
                           // array[row][column]
