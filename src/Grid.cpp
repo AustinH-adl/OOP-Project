@@ -39,7 +39,7 @@ void Grid::Initialize(int i) {
             }
         }
     }
-    std::cout << "Ran through init" << std::endl;
+    //std::cout << "Ran through init" << std::endl;
     this->newBlock();
 }
 
@@ -72,7 +72,7 @@ void Grid::Draw(int* ptr) {
             //Display the each gridcell using display rectangle RAYLIB method
             ClearBackground(DARKGRAY);
             DrawRectangle(col * gridSize.cellSize+1, row * gridSize.cellSize+1, gridSize.cellSize-1, gridSize.cellSize-1, colors[cellValue]);
-            std::cout << "rectangle Drawn at row:" << row+1 << " And Column:" << col+1 << std::endl << "Cell value is:" << cellValue << std::endl;
+            //std::cout << "rectangle Drawn at row:" << row+1 << " And Column:" << col+1 << std::endl << "Cell value is:" << cellValue << std::endl;
         }
     }
     //drawBox();
@@ -105,6 +105,7 @@ void Grid::newBlock() {
         currentBlock = block;
     } else if(blocks.size() ==0) {
         currentBlock = new nullBlock();
-        
     }
 }
+
+std::vector<Block*> Grid::getBlocks() { return blocks; }

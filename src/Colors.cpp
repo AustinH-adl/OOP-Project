@@ -13,5 +13,5 @@ Colors::Colors(){
 }
 
 std::vector<Color> Colors::ReturnColors(){
-    return {darkGrey, green, red, orange, yellow, purple, cyan, blue};
+    return {darkGrey, LIGHTGRAY, red, orange, yellow, purple, cyan, blue, ORANGE, GREEN, PINK};
 }

@@ -13,6 +13,9 @@
 #include <unistd.h>
 #include "StartMenu.cpp"
 #include "TuteMenus.cpp"
+#include "Blocks.cpp"
+#include <fstream>
+#include <string>
 
 Game::Game() {
   this->_width = 500;
@@ -49,7 +52,6 @@ void Game::Run() {
       case 2:
         Input();
         drawScore(_player);
-
         this->_grid->Draw(_statePtr);
         break;
       case 3:
@@ -60,6 +62,7 @@ void Game::Run() {
         break;
       case 8:
         this->Tute_menu2->Draw(_statePtr);
+        break;
     }
   }
   CloseWindow();
@@ -93,7 +96,6 @@ void Game::Input() {
         placeBlock(0);
         _grid->newBlock();
       }
-      
       break;
   }
 
@@ -155,12 +157,9 @@ bool Game::isBlockPlaceable(){ //calls is cell outside for each tile of a block
              //Error message is displayed
             drawError(); 
             return false;
-            
         }
     }
-    
     return true;
-    
 }
 
 
@@ -179,39 +178,138 @@ bool Game::isBlockOutside() {
 Game::~Game() {
   delete _menu;
   delete _grid;
+  delete _player;
+  delete start_menu;
+  delete Tute_menu1;
+  delete Tute_menu2;
 }
 
 void Game::placeBlock(int i) {
   std::vector<Position> tiles = currentBlock->getCellPosition();
   _grid->place(tiles);
-  _player->incrementScore(4); 
+  for (Position item : tiles) {
+    _player->incrementScore(1);
+  }
 }
 
-void Game::drawScore(Player* _player){
+void Game::drawScore(Player* _player){ //Draws the score dynamically for each change in the score and draw/checkfor press of save_btn and load_btn
+  Vector2 mousePos = {-100.0f, -100.0f}; 
+  Rectangle save_btn = {float(this->_width - 180), float(this->_height/2.0f-20.0f), (float)170, (float)40};
+  Rectangle load_btn = {float(this->_width -180), float(this->_height/2.0f+30), (float)170, (float)40};
+  mousePos = GetMousePosition();
+  int score = _player->getScore(); //score updates after a block is placed from input
+  //Score visuals
+  //Font font = LoadFontEx("Font/monogram.ttf", 64, 0, 0);
 
-    int score = _player->getScore(); //score updates after a block is placed from input
-    //Score visuals
-    Font font = LoadFontEx("Font/monogram.ttf", 64, 0, 0);
+  DrawText("Score", 350, 10, 20, WHITE);
 
-    DrawTextEx(font, "Score", {350,10}, 38, 2, WHITE);
+  char scoreText[10];
 
-    char scoreText[10];
-
-    snprintf(scoreText, sizeof(scoreText), "%d", score);
-    Vector2 textsize = MeasureTextEx(font, scoreText, 38, 2);
-                     // left ,width, right, height
-    DrawRectangleRounded({320, 50, 170, 100}, 0.3, 6, BLUE); //Draw the blue box behind score number
-
-    DrawTextEx(font, scoreText, {380, 75}, 38, 2, WHITE); // Draws number score and updates
-
+  snprintf(scoreText, sizeof(scoreText), "%d", score);
+  Vector2 textsize = MeasureTextEx(GetFontDefault(), scoreText, 38, 2);
+                    // left ,width, right, height
+  DrawRectangle(save_btn.x, save_btn.y, save_btn.width, save_btn.height, BLUE);
+  DrawRectangle(load_btn.x, load_btn.y, load_btn.width, load_btn.height, BLUE);
+  DrawText("Save", save_btn.x+10, save_btn.y+10, 20, BLACK);
+  DrawText("Load", load_btn.x+10, load_btn.y+10, 20, BLACK);
+  DrawRectangleRounded({320, 50, 170, 100}, 0.3, 6, BLUE); //Draw the blue box behind score number
+  DrawTextEx(GetFontDefault(), scoreText, {380, 75}, 38, 2, WHITE); // Draws number score and updates
+  if (CheckCollisionPointRec(mousePos, save_btn) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+    save();
+  } else if (CheckCollisionPointRec(mousePos, load_btn) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+    load();
+  }
 }
 
 void Game::drawError(){
   BeginDrawing();
-    ClearBackground(WHITE);
-    DrawText("Can't place block here", 200, 250, 50, BLACK);
+    ClearBackground(DARKGRAY);
+    DrawText("Can't place block here", _width/2-100, _width/2-100, 20, BLACK);
   EndDrawing();
   sleep(1);
+}
+
+void Game::save() {
+  std::vector<Block*> blocks;
+  blocks = _grid->getBlocks();
+  std::ofstream map_file("resources/map.txt");
+  for (int i = 0; i < 20; i++) {
+    for (int j = 0; j < 10; j++) {
+      map_file << _grid->gridArray[i][j] << " ";
+    }
+    map_file << '\n';
+  }
+  map_file.close();
+  std::ofstream block_file("resources/blocks.txt");
+  block_file << blocks.size()+1 << "\n";
+  block_file << _grid->Get_Block()->id << " ";
+  if (blocks.size()!=0) {
+    for (int i = 0; i < blocks.size(); i++) {
+      block_file << blocks[i]->id  << " ";
+    }
+  }
+  block_file.close();
+}
+
+void Game::load() {
+  std::vector<int> tempid;
+  std::vector<Block*> tempBlock;
+  int tempgrid[20][10];
+  std::ifstream map_file("resources/map.txt"); 
+  for (int i = 0; i < 20; i++) {
+    for (int j = 0; j < 10; j++) {
+      map_file >> tempgrid[i][j];
+      //std::cout << tempgrid[i][j];
+    }
+    //std::cout << "\n";
+  }
+  map_file.close();
+  for (int i = 0; i < 20; i++) {
+    for (int j = 0; j < 10; j++) {
+      _grid->gridArray[i][j] = tempgrid[i][j];
+    }
+  }
+  std::ifstream block_file("resources/blocks.txt");
+  int count; 
+  block_file >> count;
+  std::cout << count << "\n";
+  for (int i = 0; i < count; i++) {
+    int id;
+    block_file >> id;
+    tempid.push_back(id);
+    std::cout << tempid[i] << " ";
+  }
+  block_file.close();
+  for (int i : tempid) {
+    switch (i) {
+      case 2:
+        tempBlock.push_back(new CBlock());
+        break;
+      case 3:
+        tempBlock.push_back(new IBlock());
+        break;
+      case 4:
+        tempBlock.push_back(new LBlock());
+        break;
+      case 5:
+        tempBlock.push_back(new SBlock());
+        break;
+      case 6:
+        tempBlock.push_back(new TBlock());
+        break;
+      case 7:
+        tempBlock.push_back(new JBlock());
+        break;
+      case 8:
+        tempBlock.push_back(new OBlock());
+        break;
+      case 9:
+        tempBlock.push_back(new ZBlock());
+        break;
+    }
+  }
+  _grid->getBlocks() = tempBlock;
+  _grid->newBlock();
 }
 
 /*

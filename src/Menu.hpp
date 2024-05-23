@@ -8,7 +8,6 @@ class Menu {
         int height = 600;
         int* statePtr;
     public:
-        void Start();
         void Draw(int*);
 };
 

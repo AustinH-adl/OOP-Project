@@ -41,5 +41,7 @@ class Game {
   void drawScore(Player* player);
   void drawError();
   bool collisionDetection();
+  void save();
+  void load();
   ~Game();
 };

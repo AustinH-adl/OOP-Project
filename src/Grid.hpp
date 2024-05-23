@@ -22,7 +22,6 @@ class Grid {
   std::vector<Block*> placed;
   std::vector<Block*> blocks;
   Level* lvl;
-
  public:
   int gridArray[20][10];  // Multilevel array of integers representing the map.
                           // array[row][column]
@@ -37,5 +36,6 @@ class Grid {
   void place(std::vector<Position> tiles);
   bool IsCellOutside(int row, int column);
   bool IsCellPlacable(int row, int column);
+  std::vector<Block*> getBlocks();
   ~Grid();
 };

@@ -17,7 +17,6 @@ Player::Player() {
 void Player::incrementScore(int points){
     this-> score += points;
     std::cout << name << "'s score: " << score << std::endl;
-
 }
 
 int Player::getScore(){
