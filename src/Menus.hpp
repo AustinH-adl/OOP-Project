@@ -7,14 +7,16 @@
 #include "Position.hpp"
 #include "raylib-cpp.hpp"
 
+
+/*
+Menus.hpp defines all the new Menu classes and their required attributes 
+*/
 class StartMenu : public Menu {
  private:
   Position Label = {height / 2 - 100, width / 2 - 65};
-  Rectangle lvl1_btn = {float(width / 2.0f - 50.0f), height / 2.0f - 15.0f,
-                        100.0f, 30.0f};
+  Rectangle lvl1_btn = {float(width / 2.0f - 50.0f), height / 2.0f - 15.0f, 100.0f, 30.0f};
   Position lvl1_text = {height / 2 - 10, width / 2 - 33};
-  Rectangle lvl2_btn = {float(width / 2.0f - 50.0f),
-                        float(height / 2.0f - 15.0f + 90.0f), 100.0f, 30.0f};
+  Rectangle lvl2_btn = {float(width / 2.0f - 50.0f), float(height / 2.0f - 15.0f + 90.0f), 100.0f, 30.0f};
   Position lvl2_text = {height / 2 + 80, width / 2 - 36};
 
  public:

@@ -11,14 +11,14 @@
     this -> score = 0;
 }*/
 
-Player::Player() {
+Player::Player() { //Player constructor defines name and score
   this->name = "";
   this->score = 0;
 }
 
-void Player::incrementScore(int points) {
+void Player::incrementScore(int points) { //increments score member by argument
   this->score += points;
   std::cout << name << "'s score: " << score << std::endl;
 }
 
-int Player::getScore() { return this->score; }
+int Player::getScore() { return this->score; } //returns score member

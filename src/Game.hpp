@@ -33,7 +33,7 @@ class Game {
   void Input();
   void MoveBlock(int);
   void rotateBlock(int);
-  void placeBlock(int);
+  void placeBlock();
   Block *getCurrentBlock();
   bool isBlockOutside();
   bool isBlockPlaceable();

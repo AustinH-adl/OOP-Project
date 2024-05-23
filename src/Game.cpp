@@ -1,7 +1,6 @@
 #include "Game.hpp"
 
 #include <unistd.h>
-
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -17,7 +16,7 @@
 #include "Window.hpp"
 #include "raylib-cpp.hpp"
 
-Game::Game() {
+Game::Game() { //Game constructor defines all the data members for Game including instantiating classes for the needed game objects
   this->_width = 500;
   this->_height = 600;
   this->_title = "TetriCity";
@@ -32,7 +31,7 @@ Game::Game() {
   Tute_menu2 = new TuteMenu2();
 }
 
-void Game::Run() {
+void Game::Run() { //Run method is called in main and defines the main loop for the game window
   InitWindow(
       _width, _height,
       _title);  // Initialize window with width, height and title members.
@@ -41,15 +40,12 @@ void Game::Run() {
   background.Play();
   SetTargetFPS(60);
 
-  while (!WindowShouldClose()) {
-    switch (this->_windowState) {
-      case 0:
-        DrawText("No State", 150, 300, 20, BLACK);
-        break;
+  while (!WindowShouldClose()) { //When no button to close the window is pressed continue with loop
+    switch (this->_windowState) { //Depending on the window state different menu's will be called including: Grid, Menu, Tute__menu, start_menu and main menu
       case 1:
         this->_menu->Draw(_statePtr);
         break;
-      case 2:
+      case 2: //when in the main game window handle input's and draw the score and grid
         Input();
         drawScore(_player);
         this->_grid->Draw(_statePtr);
@@ -63,14 +59,19 @@ void Game::Run() {
       case 8:
         this->Tute_menu2->Draw(_statePtr);
         break;
+      default: //If a nondefined state is chosen boot into a 
+        BeginDrawing();
+        DrawText("No State", 150, 300, 20, BLACK);
+        EndDrawing();
+        break;
     }
   }
   CloseWindow();
 }
 
-void Game::changeState(int i) { this->_windowState = i; }
+void Game::changeState(int i) { this->_windowState = i; } //setter for the window state
 
-void Game::Input() {
+void Game::Input() { //Find the pressed key and depending on the input call corresponding method
   int keyPressed = GetKeyPressed();
   switch (keyPressed) {
     case KEY_UP:
@@ -93,15 +94,14 @@ void Game::Input() {
       break;
     case KEY_ENTER:
       if (isBlockPlaceable()) {
-        placeBlock(0);
+        placeBlock();
         _grid->newBlock();
       }
       break;
   }
 }
 
-void Game::MoveBlock(int direction)  // Direction corresponds to up(0), down(1),
-                                     // left(2) and right(3)
+void Game::MoveBlock(int direction)  // Direction corresponds to up(0), down(1), left(2) and right(3)
 {
   currentBlock = getCurrentBlock();
   switch (direction) {
@@ -132,7 +132,7 @@ void Game::MoveBlock(int direction)  // Direction corresponds to up(0), down(1),
   }
 }
 
-void Game::rotateBlock(int i) {
+void Game::rotateBlock(int i) { //Rotate block (0=clockwise, 1=anticlockwise)
   switch (i) {
     case 0:
       currentBlock->Rotate(0);
@@ -149,23 +149,20 @@ void Game::rotateBlock(int i) {
   }
 }
 
-bool Game::isBlockPlaceable() {  // calls is cell outside for each tile of a
-                                 // block
+bool Game::isBlockPlaceable() {  // calls is cell outside for each tile of a block
   std::vector<Position> tiles = currentBlock->getCellPosition();
-  for (Position item :
-       tiles) {  // if the tile enters a grid with val 0 it returns true
+  for (Position item :tiles) {  // for all the tiles in the block if tile enters a grid with val 0 it returns false
     if (!_grid->IsCellPlacable(item.row, item.column)) {
-      // Error message is displayed
-      drawError();
+      drawError(); // Error message is displayed
       return false;
     }
   }
   return true;
 }
 
-Block* Game::getCurrentBlock() { return _grid->Get_Block(); }
+Block* Game::getCurrentBlock() { return _grid->Get_Block(); } //return the currently selected block
 
-bool Game::isBlockOutside() {
+bool Game::isBlockOutside() { //Check if any of the blocks tiles are outside the defined grid
   std::vector<Position> tiles = currentBlock->getCellPosition();
   for (Position item : tiles) {
     if (!_grid->IsCellOutside(item.row, item.column)) {
@@ -175,7 +172,7 @@ bool Game::isBlockOutside() {
   return false;
 }
 
-Game::~Game() {
+Game::~Game() { //deconstructor which deletes all instanciated class objects which are defined dynamically
   delete _menu;
   delete _grid;
   delete _player;
@@ -184,18 +181,16 @@ Game::~Game() {
   delete Tute_menu2;
 }
 
-void Game::placeBlock(int i) {
+void Game::placeBlock() { //Draw grid's place for all the block tiles
   std::vector<Position> tiles = currentBlock->getCellPosition();
   _grid->place(tiles);
-  for (Position item : tiles) {
+  for (Position item : tiles) { //increment the score for each tile placed
     _player->incrementScore(1);
   }
 }
 
 void Game::drawScore(
-    Player*
-        _player) {  // Draws the score dynamically for each change in the score
-                    // and draw/checkfor press of save_btn and load_btn
+    Player*_player) {  // Draws the score dynamically for each change in the score and draw/checkfor press of save_btn and load_btn
   Vector2 mousePos = {-100.0f, -100.0f};
   Rectangle save_btn = {float(this->_width - 180),
                         float(this->_height / 2.0f - 20.0f), (float)170,
@@ -204,10 +199,8 @@ void Game::drawScore(
                         float(this->_height / 2.0f + 30), (float)170,
                         (float)40};
   mousePos = GetMousePosition();
-  int score =
-      _player->getScore();  // score updates after a block is placed from input
+  int score =_player->getScore();  // score updates after a block is placed from input
   // Score visuals
-  // Font font = LoadFontEx("Font/monogram.ttf", 64, 0, 0);
 
   DrawText("Score", 350, 10, 20, WHITE);
 
@@ -220,20 +213,20 @@ void Game::drawScore(
   DrawRectangle(load_btn.x, load_btn.y, load_btn.width, load_btn.height, BLUE);
   DrawText("Save", save_btn.x + 10, save_btn.y + 10, 20, BLACK);
   DrawText("Load", load_btn.x + 10, load_btn.y + 10, 20, BLACK);
-  DrawRectangleRounded({320, 50, 170, 100}, 0.3, 6,
-                       BLUE);  // Draw the blue box behind score number
-  DrawTextEx(GetFontDefault(), scoreText, {380, 75}, 38, 2,
-             WHITE);  // Draws number score and updates
-  if (CheckCollisionPointRec(mousePos, save_btn) &&
-      IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+  DrawRectangleRounded({320, 50, 170, 100}, 0.3, 6,BLUE);  // Draw the blue box behind score number
+  DrawTextEx(GetFontDefault(), scoreText, {380, 75}, 38, 2, WHITE);  // Draws number score and updates
+
+  /*
+  If the mouse button is clicked while the mouse rectangle is colliding with button rectangle call the defined method (save or load)
+  */
+  if (CheckCollisionPointRec(mousePos, save_btn) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
     save();
-  } else if (CheckCollisionPointRec(mousePos, load_btn) &&
-             IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+  } else if (CheckCollisionPointRec(mousePos, load_btn) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
     load();
   }
 }
 
-void Game::drawError() {
+void Game::drawError() { //display text "Cant Place Block here" on screen and wait one second
   BeginDrawing();
   ClearBackground(DARKGRAY);
   DrawText("Can't place block here", _width / 2 - 100, _width / 2 - 100, 20,
@@ -242,7 +235,10 @@ void Game::drawError() {
   sleep(1);
 }
 
-void Game::save() {
+/*
+Save the current map at time of save button click to map_file and save the remaining blocks in the block list into block_file
+*/
+void Game::save() { 
   std::vector<Block*> blocks;
   blocks = _grid->getBlocks();
   std::ofstream map_file("resources/map.txt");
@@ -254,7 +250,7 @@ void Game::save() {
   }
   map_file.close();
   std::ofstream block_file("resources/blocks.txt");
-  block_file << blocks.size() + 1 << "\n";
+  block_file << blocks.size() + 1 << "\n"; //defines the amount of times needed to iterate when loading
   block_file << _grid->Get_Block()->id << " ";
   if (blocks.size() != 0) {
     for (int i = 0; i < blocks.size(); i++) {
@@ -264,12 +260,15 @@ void Game::save() {
   block_file.close();
 }
 
-void Game::load() {
+/*
+Reads from files and obtains the contained integers 
+*/
+void Game::load() { 
   std::vector<int> tempid;
   std::vector<Block*> tempBlock;
   int tempgrid[20][10];
   std::ifstream map_file("resources/map.txt");
-  for (int i = 0; i < 20; i++) {
+  for (int i = 0; i < 20; i++) { //For every integer contained in the map_file (seperated by whitespace) define tempgrid at indexes i and j
     for (int j = 0; j < 10; j++) {
       map_file >> tempgrid[i][j];
       // std::cout << tempgrid[i][j];
@@ -277,7 +276,7 @@ void Game::load() {
     // std::cout << "\n";
   }
   map_file.close();
-  for (int i = 0; i < 20; i++) {
+  for (int i = 0; i < 20; i++) { //Iterate through the temp array and redefines the gridArray for tempgrid integers
     for (int j = 0; j < 10; j++) {
       _grid->gridArray[i][j] = tempgrid[i][j];
     }
@@ -286,15 +285,15 @@ void Game::load() {
   int count;
   block_file >> count;
   std::cout << count << "\n";
-  for (int i = 0; i < count; i++) {
+  for (int i = 0; i < count; i++) { //For the defined count (int representing vector size) iterate through the file and push to the back of tempid vector
     int id;
     block_file >> id;
     tempid.push_back(id);
     std::cout << tempid[i] << " ";
   }
   block_file.close();
-  for (int i : tempid) {
-    switch (i) {
+  for (int id : tempid) { //For every id in the tempid vector instantiate a new block and push to tempblock
+    switch (id) {
       case 2:
         tempBlock.push_back(new CBlock());
         break;
@@ -321,8 +320,8 @@ void Game::load() {
         break;
     }
   }
-  _grid->getBlocks() = tempBlock;
-  _grid->newBlock();
+  _grid->getBlocks() = tempBlock; //redefine the grid blocks 
+  _grid->newBlock(); //redefine current block
 }
 
 /*

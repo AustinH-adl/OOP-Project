@@ -5,7 +5,7 @@
 #include "Blocks.cpp"
 #include "Level.hpp"
 
-Level1::Level1() {
+Level1::Level1() { //constructor defines the level map and blocks
   this->Map = {{0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                {0, 1, 1, 1, 1, 1, 1, 1, 1, 0}, {0, 1, 1, 1, 1, 1, 1, 1, 1, 0},
                {0, 1, 1, 1, 1, 1, 1, 1, 1, 0}, {0, 1, 0, 1, 1, 1, 0, 1, 1, 0},
@@ -20,7 +20,7 @@ Level1::Level1() {
                   new OBlock(), new LBlock(), new ZBlock(), new JBlock()};
 }
 
-Level2::Level2() {
+Level2::Level2() { //constructor defines the level map and blocks
   this->Map = {{0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
