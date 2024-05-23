@@ -61,6 +61,9 @@ Run TetriCity:
 ```
 ## How to play
 When in the game, press play to go to level select or press tutorial to learn more about playing the game.
+
 Once you have selected a level, you can move your current piece by using the arrow key and can rotate it using the 'R' key.
+
 Once in place, press the Enter key to fix the block in place and get a new block.
+
 For each block placed, your score increases. Try and place all of them to win!
