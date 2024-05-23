@@ -5,11 +5,10 @@
 
 #include "Block.hpp"
 #include "Grid.hpp"
-#include "Menus.hpp"
-#include "raylib-cpp.hpp"
-#include "Player.hpp"
 #include "Menu.hpp"
 #include "Menus.hpp"
+#include "Player.hpp"
+#include "raylib-cpp.hpp"
 
 class Game {
  private:
@@ -22,7 +21,7 @@ class Game {
   Block *currentBlock;
   Grid *_grid;
   MainMenu *_menu;
-  Player* _player;
+  Player *_player;
   StartMenu *start_menu;
   TuteMenu1 *Tute_menu1;
   TuteMenu2 *Tute_menu2;
@@ -38,8 +37,10 @@ class Game {
   Block *getCurrentBlock();
   bool isBlockOutside();
   bool isBlockPlaceable();
-  void drawScore(Player* player);
+  void drawScore(Player *player);
   void drawError();
   bool collisionDetection();
+  void save();
+  void load();
   ~Game();
 };
