@@ -67,3 +67,5 @@ Once you have selected a level, you can move your current piece by using the arr
 Once in place, press the Enter key to fix the block in place and get a new block.
 
 For each block placed, your score increases. Try and place all of them to win!
+
+You can also use the save and load buttons to save the state of the puzzle and load it again.
