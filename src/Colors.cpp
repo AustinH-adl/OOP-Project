@@ -1,6 +1,6 @@
 #include "Colors.hpp"
 
-Colors::Colors() {
+Colors::Colors() { //constructor defines the colours in color class
   darkGrey = {26, 31, 40, 255};
   green = {47, 230, 23, 255};
   red = {232, 18, 18, 255};
@@ -11,7 +11,7 @@ Colors::Colors() {
   blue = {13, 64, 216, 255};
 }
 
-std::vector<Color> Colors::ReturnColors() {
+std::vector<Color> Colors::ReturnColors() { //return a vector of raylib colours
   return {darkGrey, LIGHTGRAY, red,    orange, yellow, purple,
           cyan,     blue,      ORANGE, GREEN,  PINK};
 }

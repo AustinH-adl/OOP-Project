@@ -5,6 +5,11 @@
 #include "Colors.hpp"
 #include "Position.hpp"
 
+/*
+Blocks class defines the different types of blocks inherited from the block interface
+Constructors for every block defines the tiles it inhabits at each rotation state and the block ID used for the colour when placed
+*/
+
 class CBlock : public Block {
  public:
   CBlock() {
@@ -94,7 +99,7 @@ class ZBlock : public Block {
   }
 };
 
-class nullBlock : public Block {
+class nullBlock : public Block { //Nullblock is call for the current block when the levels block list is empty to prevent seg fault
  public:
   nullBlock() {
     id = 0;
