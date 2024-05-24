@@ -30,6 +30,7 @@ src/Player.cpp
 src/Player.hpp
 src/Menu.hpp
 src/Menus.hpp
+src/Testing.cpp
 )
 
 # Include and link directories

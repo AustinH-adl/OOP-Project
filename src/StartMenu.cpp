@@ -2,9 +2,12 @@
 #include "Menus.hpp"
 #include "Position.hpp"
 #include "raylib-cpp.hpp"
+#include "Testing.cpp"
 
 void StartMenu::Draw(int *Ptr) { //Draws Start menu and runs checks for button presses
   this->statePtr = Ptr;
+  MenuTesting t;
+  t.TestMenu(*statePtr, Ptr);
   Vector2 mousePos = {-100.0f, -100.0f};
   mousePos = GetMousePosition();
   BeginDrawing();

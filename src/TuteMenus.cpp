@@ -4,11 +4,14 @@
 #include "Menu.hpp"
 #include "Position.hpp"
 #include "raylib-cpp.hpp"
+#include "Testing.cpp"
 
 void TuteMenu1::Draw(int* Ptr) { //Draws tutorial 1 menu and runs checks for button presses
   pos.x = 0.0;
   pos.y = 0.0;
   this->statePtr = Ptr;
+  MenuTesting t;
+  t.TestMenu(*statePtr, Ptr);
   Vector2 mousePos = {-100.0f, -100.0f};
   mousePos = GetMousePosition();
   BeginDrawing();
