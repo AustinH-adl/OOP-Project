@@ -30,6 +30,7 @@ src/Player.cpp
 src/Player.hpp
 src/Menu.hpp
 src/Menus.hpp
+src/TestBlock.hpp
 )
 
 # Include and link directories
@@ -48,3 +49,5 @@ target_link_libraries(TetriCity raylib raylib_cpp)
 
 # Set standard cpp to 11
 set_target_properties(TetriCity PROPERTIES CXX_STANDARD 11)
+
+# Add Google Test
