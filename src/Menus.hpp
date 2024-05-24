@@ -45,8 +45,7 @@ class TuteMenu1 : public Menu {
 
  protected:
   Vector2 pos;
-  Rectangle next_btn = {float(width - 150.0f), float(height - 50.0f), 100.0f,
-                        30.0f};
+  Rectangle next_btn = {float(width - 150.0f), float(height - 50.0f), 100.0f, 30.0f};
 
  public:
   virtual void Draw(int* Ptr);
